@@ -1,0 +1,101 @@
+ASSET_ID,SECTOR,DEPARTMENT,ASSET_TYPE,ASSET_CRITICALITY,ASSET_ZONE,ASSET_OWNER,INTERNET_EXPOSURE,VULNERABILITY_SCORE,DEPENDENCY_LEVEL
+S01-GW01,Government Data Centres,DEPT-01,Internet Gateway,High,DMZ,OWNER-01,Yes,7.0,Low
+S01-APP01,Government Data Centres,DEPT-01,Web/Application Server,High,DMZ,OWNER-01,Yes,7.8,Low
+S01-AUTH01,Government Data Centres,DEPT-01,Authentication Server,Critical,Internal,OWNER-01,No,3.7,High
+S01-DB01,Government Data Centres,DEPT-01,Database Server,Critical,Internal,OWNER-01,No,2.8,High
+S01-WS01,Government Data Centres,DEPT-01,User Workstation,Medium,Internal,OWNER-01,No,9.0,Low
+S01-MGMT01,Government Data Centres,DEPT-01,Management Server,Critical,Internal,OWNER-01,No,6.6,Low
+S01-BKP01,Government Data Centres,DEPT-01,Backup Server,Critical,Internal,OWNER-01,No,2.2,Low
+S01-MON01,Government Data Centres,DEPT-01,Monitoring Server,High,Internal,OWNER-01,No,3.8,High
+S01-VPN01,Government Data Centres,DEPT-01,Remote Access Gateway,High,DMZ,OWNER-01,Yes,2.2,Low
+S01-CTRL01,Government Data Centres,DEPT-01,Sector-Specific Controller,Critical,OT,OWNER-01,No,7.6,High
+S02-GW01,Power Infrastructure,DEPT-02,Internet Gateway,High,DMZ,OWNER-02,Yes,6.3,Low
+S02-APP01,Power Infrastructure,DEPT-02,Web/Application Server,High,DMZ,OWNER-02,Yes,5.5,Medium
+S02-AUTH01,Power Infrastructure,DEPT-02,Authentication Server,Critical,Internal,OWNER-02,No,8.3,Low
+S02-DB01,Power Infrastructure,DEPT-02,Database Server,Critical,Internal,OWNER-02,No,7.9,Low
+S02-WS01,Power Infrastructure,DEPT-02,User Workstation,Medium,Internal,OWNER-02,No,7.4,Medium
+S02-MGMT01,Power Infrastructure,DEPT-02,Management Server,Critical,Internal,OWNER-02,No,4.2,Low
+S02-BKP01,Power Infrastructure,DEPT-02,Backup Server,Critical,Internal,OWNER-02,No,9.5,Medium
+S02-MON01,Power Infrastructure,DEPT-02,Monitoring Server,High,Internal,OWNER-02,No,2.8,Medium
+S02-VPN01,Power Infrastructure,DEPT-02,Remote Access Gateway,High,DMZ,OWNER-02,Yes,2.8,Medium
+S02-CTRL01,Power Infrastructure,DEPT-02,Sector-Specific Controller,Critical,OT,OWNER-02,No,6.7,Low
+S03-GW01,Telecom,DEPT-03,Internet Gateway,High,DMZ,OWNER-03,Yes,7.7,High
+S03-APP01,Telecom,DEPT-03,Web/Application Server,High,DMZ,OWNER-03,Yes,3.0,Medium
+S03-AUTH01,Telecom,DEPT-03,Authentication Server,Critical,Internal,OWNER-03,No,2.6,Medium
+S03-DB01,Telecom,DEPT-03,Database Server,Critical,Internal,OWNER-03,No,8.5,High
+S03-WS01,Telecom,DEPT-03,User Workstation,Medium,Internal,OWNER-03,No,8.9,Medium
+S03-MGMT01,Telecom,DEPT-03,Management Server,Critical,Internal,OWNER-03,No,6.5,High
+S03-BKP01,Telecom,DEPT-03,Backup Server,Critical,Internal,OWNER-03,No,2.5,High
+S03-MON01,Telecom,DEPT-03,Monitoring Server,High,Internal,OWNER-03,No,3.8,Medium
+S03-VPN01,Telecom,DEPT-03,Remote Access Gateway,High,DMZ,OWNER-03,Yes,9.7,Low
+S03-CTRL01,Telecom,DEPT-03,Sector-Specific Controller,Critical,OT,OWNER-03,No,8.8,Medium
+S04-GW01,Railways,DEPT-04,Internet Gateway,High,DMZ,OWNER-04,Yes,4.2,High
+S04-APP01,Railways,DEPT-04,Web/Application Server,High,DMZ,OWNER-04,Yes,8.5,Low
+S04-AUTH01,Railways,DEPT-04,Authentication Server,Critical,Internal,OWNER-04,No,4.9,Low
+S04-DB01,Railways,DEPT-04,Database Server,Critical,Internal,OWNER-04,No,7.2,High
+S04-WS01,Railways,DEPT-04,User Workstation,Medium,Internal,OWNER-04,No,9.3,High
+S04-MGMT01,Railways,DEPT-04,Management Server,Critical,Internal,OWNER-04,No,2.6,High
+S04-BKP01,Railways,DEPT-04,Backup Server,Critical,Internal,OWNER-04,No,3.3,High
+S04-MON01,Railways,DEPT-04,Monitoring Server,High,Internal,OWNER-04,No,3.9,Medium
+S04-VPN01,Railways,DEPT-04,Remote Access Gateway,High,DMZ,OWNER-04,Yes,5.0,High
+S04-CTRL01,Railways,DEPT-04,Sector-Specific Controller,Critical,OT,OWNER-04,No,7.4,Low
+S05-GW01,Airports,DEPT-05,Internet Gateway,High,DMZ,OWNER-05,Yes,7.3,Low
+S05-APP01,Airports,DEPT-05,Web/Application Server,High,DMZ,OWNER-05,Yes,3.8,Low
+S05-AUTH01,Airports,DEPT-05,Authentication Server,Critical,Internal,OWNER-05,No,8.3,Medium
+S05-DB01,Airports,DEPT-05,Database Server,Critical,Internal,OWNER-05,No,4.1,Low
+S05-WS01,Airports,DEPT-05,User Workstation,Medium,Internal,OWNER-05,No,9.1,High
+S05-MGMT01,Airports,DEPT-05,Management Server,Critical,Internal,OWNER-05,No,8.8,Medium
+S05-BKP01,Airports,DEPT-05,Backup Server,Critical,Internal,OWNER-05,No,3.7,Medium
+S05-MON01,Airports,DEPT-05,Monitoring Server,High,Internal,OWNER-05,No,5.1,High
+S05-VPN01,Airports,DEPT-05,Remote Access Gateway,High,DMZ,OWNER-05,Yes,5.6,Medium
+S05-CTRL01,Airports,DEPT-05,Sector-Specific Controller,Critical,OT,OWNER-05,No,3.1,High
+S06-GW01,Defence Networks,DEPT-06,Internet Gateway,High,DMZ,OWNER-06,Yes,6.4,Medium
+S06-APP01,Defence Networks,DEPT-06,Web/Application Server,High,DMZ,OWNER-06,Yes,7.8,Medium
+S06-AUTH01,Defence Networks,DEPT-06,Authentication Server,Critical,Internal,OWNER-06,No,9.0,Medium
+S06-DB01,Defence Networks,DEPT-06,Database Server,Critical,Internal,OWNER-06,No,4.8,Low
+S06-WS01,Defence Networks,DEPT-06,User Workstation,Medium,Internal,OWNER-06,No,6.0,Low
+S06-MGMT01,Defence Networks,DEPT-06,Management Server,Critical,Internal,OWNER-06,No,7.9,Low
+S06-BKP01,Defence Networks,DEPT-06,Backup Server,Critical,Internal,OWNER-06,No,3.2,Low
+S06-MON01,Defence Networks,DEPT-06,Monitoring Server,High,Internal,OWNER-06,No,8.2,Medium
+S06-VPN01,Defence Networks,DEPT-06,Remote Access Gateway,High,DMZ,OWNER-06,Yes,6.7,Medium
+S06-CTRL01,Defence Networks,DEPT-06,Sector-Specific Controller,Critical,OT,OWNER-06,No,5.0,Medium
+S07-GW01,Government Financial Systems,DEPT-07,Internet Gateway,High,DMZ,OWNER-07,Yes,6.1,High
+S07-APP01,Government Financial Systems,DEPT-07,Web/Application Server,High,DMZ,OWNER-07,Yes,8.7,Low
+S07-AUTH01,Government Financial Systems,DEPT-07,Authentication Server,Critical,Internal,OWNER-07,No,7.3,Low
+S07-DB01,Government Financial Systems,DEPT-07,Database Server,Critical,Internal,OWNER-07,No,7.3,High
+S07-WS01,Government Financial Systems,DEPT-07,User Workstation,Medium,Internal,OWNER-07,No,7.9,High
+S07-MGMT01,Government Financial Systems,DEPT-07,Management Server,Critical,Internal,OWNER-07,No,4.7,Medium
+S07-BKP01,Government Financial Systems,DEPT-07,Backup Server,Critical,Internal,OWNER-07,No,5.4,Medium
+S07-MON01,Government Financial Systems,DEPT-07,Monitoring Server,High,Internal,OWNER-07,No,2.0,High
+S07-VPN01,Government Financial Systems,DEPT-07,Remote Access Gateway,High,DMZ,OWNER-07,Yes,8.8,Medium
+S07-CTRL01,Government Financial Systems,DEPT-07,Sector-Specific Controller,Critical,OT,OWNER-07,No,9.6,Low
+S08-GW01,Government Healthcare,DEPT-08,Internet Gateway,High,DMZ,OWNER-08,Yes,6.0,Low
+S08-APP01,Government Healthcare,DEPT-08,Web/Application Server,High,DMZ,OWNER-08,Yes,8.8,Medium
+S08-AUTH01,Government Healthcare,DEPT-08,Authentication Server,Critical,Internal,OWNER-08,No,8.6,High
+S08-DB01,Government Healthcare,DEPT-08,Database Server,Critical,Internal,OWNER-08,No,6.7,Low
+S08-WS01,Government Healthcare,DEPT-08,User Workstation,Medium,Internal,OWNER-08,No,4.9,Low
+S08-MGMT01,Government Healthcare,DEPT-08,Management Server,Critical,Internal,OWNER-08,No,6.2,High
+S08-BKP01,Government Healthcare,DEPT-08,Backup Server,Critical,Internal,OWNER-08,No,9.2,High
+S08-MON01,Government Healthcare,DEPT-08,Monitoring Server,High,Internal,OWNER-08,No,4.5,Low
+S08-VPN01,Government Healthcare,DEPT-08,Remote Access Gateway,High,DMZ,OWNER-08,Yes,2.9,Medium
+S08-CTRL01,Government Healthcare,DEPT-08,Sector-Specific Controller,Critical,OT,OWNER-08,No,8.9,Medium
+S09-GW01,Space Infrastructure,DEPT-09,Internet Gateway,High,DMZ,OWNER-09,Yes,3.9,Low
+S09-APP01,Space Infrastructure,DEPT-09,Web/Application Server,High,DMZ,OWNER-09,Yes,8.8,Low
+S09-AUTH01,Space Infrastructure,DEPT-09,Authentication Server,Critical,Internal,OWNER-09,No,2.7,Medium
+S09-DB01,Space Infrastructure,DEPT-09,Database Server,Critical,Internal,OWNER-09,No,8.4,High
+S09-WS01,Space Infrastructure,DEPT-09,User Workstation,Medium,Internal,OWNER-09,No,8.0,Low
+S09-MGMT01,Space Infrastructure,DEPT-09,Management Server,Critical,Internal,OWNER-09,No,7.1,High
+S09-BKP01,Space Infrastructure,DEPT-09,Backup Server,Critical,Internal,OWNER-09,No,3.3,High
+S09-MON01,Space Infrastructure,DEPT-09,Monitoring Server,High,Internal,OWNER-09,No,8.8,Medium
+S09-VPN01,Space Infrastructure,DEPT-09,Remote Access Gateway,High,DMZ,OWNER-09,Yes,9.5,High
+S09-CTRL01,Space Infrastructure,DEPT-09,Sector-Specific Controller,Critical,OT,OWNER-09,No,7.9,High
+S10-GW01,State Government Networks,DEPT-10,Internet Gateway,High,DMZ,OWNER-10,Yes,3.6,Medium
+S10-APP01,State Government Networks,DEPT-10,Web/Application Server,High,DMZ,OWNER-10,Yes,5.1,High
+S10-AUTH01,State Government Networks,DEPT-10,Authentication Server,Critical,Internal,OWNER-10,No,7.1,Medium
+S10-DB01,State Government Networks,DEPT-10,Database Server,Critical,Internal,OWNER-10,No,9.0,Medium
+S10-WS01,State Government Networks,DEPT-10,User Workstation,Medium,Internal,OWNER-10,No,2.9,Low
+S10-MGMT01,State Government Networks,DEPT-10,Management Server,Critical,Internal,OWNER-10,No,2.5,Low
+S10-BKP01,State Government Networks,DEPT-10,Backup Server,Critical,Internal,OWNER-10,No,6.6,Low
+S10-MON01,State Government Networks,DEPT-10,Monitoring Server,High,Internal,OWNER-10,No,6.6,Low
+S10-VPN01,State Government Networks,DEPT-10,Remote Access Gateway,High,DMZ,OWNER-10,Yes,2.6,High
+S10-CTRL01,State Government Networks,DEPT-10,Sector-Specific Controller,Critical,OT,OWNER-10,No,2.5,Low
