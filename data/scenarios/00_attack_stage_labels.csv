@@ -1,0 +1,13 @@
+STAGE_ID,ATTACK_STAGE,DESCRIPTION
+1,Reconnaissance,Adversary gathers information about exposed assets/services.
+2,Initial Access,Adversary obtains an initial foothold.
+3,Execution,Malicious code or commands execute.
+4,Persistence,Access is maintained across sessions/restarts.
+5,Privilege Escalation,Higher privileges are obtained.
+6,Credential Access,Credentials/tokens/secrets are targeted.
+7,Discovery,Internal hosts/services/accounts are enumerated.
+8,Lateral Movement,Adversary moves between internal assets.
+9,Collection,Sensitive data is gathered or staged.
+10,Command and Control,Persistent communication with attacker infrastructure.
+11,Exfiltration,Data is transferred outside the environment.
+12,Impact,"Service disruption, encryption or destructive effect."
