@@ -1,0 +1,401 @@
+SCENARIO_ID,VARIANT_ID,VARIANT_NUMBER,NOISE_LEVEL,ATTACK_SPEED,ENTRY_CONTEXT,EXPECTED_BLAST_RADIUS
+SCN001,SCN001-V01,1,Medium,Moderate,Internal,Single host
+SCN001,SCN001-V02,2,Low,Fast,External,Cross-zone
+SCN001,SCN001-V03,3,High,Fast,Compromised Partner,2-3 hosts
+SCN001,SCN001-V04,4,Low,Moderate,Internal,Department
+SCN002,SCN002-V01,1,High,Moderate,Internal,Single host
+SCN002,SCN002-V02,2,Low,Moderate,Internal,Single host
+SCN002,SCN002-V03,3,High,Moderate,Internal,Single host
+SCN002,SCN002-V04,4,Medium,Moderate,Internal,Cross-zone
+SCN003,SCN003-V01,1,High,Slow,Compromised Partner,2-3 hosts
+SCN003,SCN003-V02,2,Medium,Fast,Internal,Cross-zone
+SCN003,SCN003-V03,3,Medium,Fast,Internal,Department
+SCN003,SCN003-V04,4,High,Slow,Internal,2-3 hosts
+SCN004,SCN004-V01,1,Medium,Fast,Compromised Partner,Single host
+SCN004,SCN004-V02,2,Medium,Slow,Compromised Partner,Single host
+SCN004,SCN004-V03,3,Low,Slow,Internal,2-3 hosts
+SCN004,SCN004-V04,4,Medium,Fast,External,Department
+SCN005,SCN005-V01,1,Medium,Moderate,External,Cross-zone
+SCN005,SCN005-V02,2,Medium,Moderate,Internal,Department
+SCN005,SCN005-V03,3,Medium,Moderate,External,Cross-zone
+SCN005,SCN005-V04,4,Low,Slow,Compromised Partner,Single host
+SCN006,SCN006-V01,1,Medium,Fast,Compromised Partner,Single host
+SCN006,SCN006-V02,2,High,Fast,External,2-3 hosts
+SCN006,SCN006-V03,3,Low,Fast,Compromised Partner,2-3 hosts
+SCN006,SCN006-V04,4,Low,Fast,Internal,Single host
+SCN007,SCN007-V01,1,High,Fast,Internal,Department
+SCN007,SCN007-V02,2,Medium,Fast,Compromised Partner,Single host
+SCN007,SCN007-V03,3,Low,Moderate,External,Single host
+SCN007,SCN007-V04,4,Medium,Slow,Compromised Partner,Cross-zone
+SCN008,SCN008-V01,1,Medium,Slow,External,Single host
+SCN008,SCN008-V02,2,High,Slow,Compromised Partner,2-3 hosts
+SCN008,SCN008-V03,3,Low,Slow,Internal,Single host
+SCN008,SCN008-V04,4,High,Fast,Internal,Cross-zone
+SCN009,SCN009-V01,1,High,Moderate,External,Department
+SCN009,SCN009-V02,2,Low,Moderate,Internal,Single host
+SCN009,SCN009-V03,3,Medium,Moderate,Compromised Partner,Cross-zone
+SCN009,SCN009-V04,4,High,Fast,Internal,2-3 hosts
+SCN010,SCN010-V01,1,High,Slow,Compromised Partner,Department
+SCN010,SCN010-V02,2,High,Slow,Internal,Cross-zone
+SCN010,SCN010-V03,3,Medium,Slow,Compromised Partner,Department
+SCN010,SCN010-V04,4,Medium,Fast,External,Department
+SCN011,SCN011-V01,1,Medium,Fast,Internal,Cross-zone
+SCN011,SCN011-V02,2,Medium,Fast,Internal,Department
+SCN011,SCN011-V03,3,Low,Moderate,External,Department
+SCN011,SCN011-V04,4,Medium,Moderate,Internal,Department
+SCN012,SCN012-V01,1,High,Fast,Compromised Partner,2-3 hosts
+SCN012,SCN012-V02,2,Low,Fast,Compromised Partner,Cross-zone
+SCN012,SCN012-V03,3,Medium,Slow,External,Cross-zone
+SCN012,SCN012-V04,4,High,Slow,Internal,Cross-zone
+SCN013,SCN013-V01,1,Low,Fast,Internal,2-3 hosts
+SCN013,SCN013-V02,2,Medium,Slow,External,Department
+SCN013,SCN013-V03,3,High,Slow,Internal,Cross-zone
+SCN013,SCN013-V04,4,High,Slow,Internal,Cross-zone
+SCN014,SCN014-V01,1,High,Slow,Internal,Department
+SCN014,SCN014-V02,2,High,Moderate,Internal,Department
+SCN014,SCN014-V03,3,Medium,Fast,External,2-3 hosts
+SCN014,SCN014-V04,4,Medium,Fast,Compromised Partner,2-3 hosts
+SCN015,SCN015-V01,1,Low,Fast,Compromised Partner,Cross-zone
+SCN015,SCN015-V02,2,Medium,Slow,Compromised Partner,Department
+SCN015,SCN015-V03,3,Low,Fast,Internal,2-3 hosts
+SCN015,SCN015-V04,4,Medium,Fast,Internal,Single host
+SCN016,SCN016-V01,1,High,Slow,External,Department
+SCN016,SCN016-V02,2,Low,Fast,Compromised Partner,Department
+SCN016,SCN016-V03,3,High,Fast,Compromised Partner,Cross-zone
+SCN016,SCN016-V04,4,Low,Fast,Compromised Partner,Department
+SCN017,SCN017-V01,1,Medium,Moderate,Internal,Department
+SCN017,SCN017-V02,2,Low,Fast,Internal,Cross-zone
+SCN017,SCN017-V03,3,Low,Fast,Internal,Cross-zone
+SCN017,SCN017-V04,4,Low,Slow,Compromised Partner,Single host
+SCN018,SCN018-V01,1,Low,Fast,Compromised Partner,Department
+SCN018,SCN018-V02,2,Low,Fast,External,Cross-zone
+SCN018,SCN018-V03,3,High,Slow,Compromised Partner,2-3 hosts
+SCN018,SCN018-V04,4,High,Moderate,Internal,Cross-zone
+SCN019,SCN019-V01,1,Medium,Slow,Internal,Department
+SCN019,SCN019-V02,2,High,Slow,External,Single host
+SCN019,SCN019-V03,3,Low,Slow,External,Department
+SCN019,SCN019-V04,4,High,Fast,External,2-3 hosts
+SCN020,SCN020-V01,1,Low,Slow,External,2-3 hosts
+SCN020,SCN020-V02,2,Low,Moderate,Internal,Cross-zone
+SCN020,SCN020-V03,3,Medium,Fast,External,Department
+SCN020,SCN020-V04,4,High,Moderate,Compromised Partner,Cross-zone
+SCN021,SCN021-V01,1,Low,Slow,External,Department
+SCN021,SCN021-V02,2,High,Slow,Compromised Partner,2-3 hosts
+SCN021,SCN021-V03,3,Medium,Fast,Compromised Partner,2-3 hosts
+SCN021,SCN021-V04,4,High,Fast,Internal,2-3 hosts
+SCN022,SCN022-V01,1,Low,Fast,External,Department
+SCN022,SCN022-V02,2,High,Slow,Compromised Partner,Department
+SCN022,SCN022-V03,3,Medium,Fast,Internal,Department
+SCN022,SCN022-V04,4,High,Moderate,Internal,Cross-zone
+SCN023,SCN023-V01,1,Medium,Fast,Compromised Partner,Single host
+SCN023,SCN023-V02,2,Medium,Slow,Internal,Department
+SCN023,SCN023-V03,3,Low,Fast,External,Single host
+SCN023,SCN023-V04,4,High,Moderate,Compromised Partner,Single host
+SCN024,SCN024-V01,1,Low,Moderate,Compromised Partner,Cross-zone
+SCN024,SCN024-V02,2,Medium,Fast,Compromised Partner,Cross-zone
+SCN024,SCN024-V03,3,High,Moderate,External,Cross-zone
+SCN024,SCN024-V04,4,Medium,Moderate,Internal,Department
+SCN025,SCN025-V01,1,High,Fast,External,Department
+SCN025,SCN025-V02,2,Medium,Slow,Internal,Department
+SCN025,SCN025-V03,3,High,Moderate,Compromised Partner,Single host
+SCN025,SCN025-V04,4,Medium,Fast,Internal,Department
+SCN026,SCN026-V01,1,Medium,Fast,Internal,Single host
+SCN026,SCN026-V02,2,High,Slow,Internal,Cross-zone
+SCN026,SCN026-V03,3,Low,Fast,Compromised Partner,Department
+SCN026,SCN026-V04,4,High,Moderate,Compromised Partner,Cross-zone
+SCN027,SCN027-V01,1,Low,Fast,Internal,2-3 hosts
+SCN027,SCN027-V02,2,Medium,Moderate,Compromised Partner,Cross-zone
+SCN027,SCN027-V03,3,Low,Fast,Compromised Partner,2-3 hosts
+SCN027,SCN027-V04,4,High,Fast,Internal,Single host
+SCN028,SCN028-V01,1,High,Moderate,External,2-3 hosts
+SCN028,SCN028-V02,2,Low,Moderate,External,2-3 hosts
+SCN028,SCN028-V03,3,Medium,Slow,Internal,Department
+SCN028,SCN028-V04,4,Medium,Moderate,Internal,2-3 hosts
+SCN029,SCN029-V01,1,Medium,Slow,External,Cross-zone
+SCN029,SCN029-V02,2,Low,Slow,Compromised Partner,2-3 hosts
+SCN029,SCN029-V03,3,Low,Moderate,Internal,Department
+SCN029,SCN029-V04,4,High,Moderate,External,Department
+SCN030,SCN030-V01,1,High,Moderate,Compromised Partner,Cross-zone
+SCN030,SCN030-V02,2,Low,Moderate,Compromised Partner,Cross-zone
+SCN030,SCN030-V03,3,Medium,Moderate,Compromised Partner,Cross-zone
+SCN030,SCN030-V04,4,Medium,Moderate,External,2-3 hosts
+SCN031,SCN031-V01,1,High,Moderate,External,Cross-zone
+SCN031,SCN031-V02,2,Low,Moderate,Compromised Partner,Cross-zone
+SCN031,SCN031-V03,3,High,Moderate,Internal,2-3 hosts
+SCN031,SCN031-V04,4,Medium,Fast,External,Department
+SCN032,SCN032-V01,1,Low,Moderate,External,Cross-zone
+SCN032,SCN032-V02,2,Low,Slow,External,Cross-zone
+SCN032,SCN032-V03,3,High,Fast,External,Cross-zone
+SCN032,SCN032-V04,4,Medium,Moderate,Compromised Partner,Cross-zone
+SCN033,SCN033-V01,1,High,Fast,Internal,Cross-zone
+SCN033,SCN033-V02,2,Medium,Slow,Compromised Partner,Cross-zone
+SCN033,SCN033-V03,3,High,Fast,Compromised Partner,Single host
+SCN033,SCN033-V04,4,Low,Slow,Compromised Partner,Department
+SCN034,SCN034-V01,1,Low,Slow,External,Cross-zone
+SCN034,SCN034-V02,2,Low,Slow,Compromised Partner,Single host
+SCN034,SCN034-V03,3,Medium,Fast,Compromised Partner,Department
+SCN034,SCN034-V04,4,Low,Fast,Internal,Single host
+SCN035,SCN035-V01,1,Medium,Moderate,Internal,Cross-zone
+SCN035,SCN035-V02,2,Low,Fast,Compromised Partner,Cross-zone
+SCN035,SCN035-V03,3,High,Slow,External,2-3 hosts
+SCN035,SCN035-V04,4,Low,Fast,Compromised Partner,Cross-zone
+SCN036,SCN036-V01,1,High,Slow,External,Cross-zone
+SCN036,SCN036-V02,2,High,Fast,External,Cross-zone
+SCN036,SCN036-V03,3,High,Moderate,Internal,Department
+SCN036,SCN036-V04,4,High,Fast,Internal,Department
+SCN037,SCN037-V01,1,High,Slow,External,Single host
+SCN037,SCN037-V02,2,Medium,Moderate,Compromised Partner,Department
+SCN037,SCN037-V03,3,High,Moderate,Compromised Partner,Department
+SCN037,SCN037-V04,4,Medium,Moderate,External,Cross-zone
+SCN038,SCN038-V01,1,Medium,Fast,External,Cross-zone
+SCN038,SCN038-V02,2,High,Moderate,Compromised Partner,Department
+SCN038,SCN038-V03,3,High,Moderate,External,Cross-zone
+SCN038,SCN038-V04,4,Medium,Fast,Compromised Partner,Single host
+SCN039,SCN039-V01,1,High,Slow,Internal,Department
+SCN039,SCN039-V02,2,Low,Slow,Internal,2-3 hosts
+SCN039,SCN039-V03,3,High,Fast,Compromised Partner,Department
+SCN039,SCN039-V04,4,High,Slow,Compromised Partner,2-3 hosts
+SCN040,SCN040-V01,1,High,Fast,Compromised Partner,Single host
+SCN040,SCN040-V02,2,Medium,Moderate,External,Department
+SCN040,SCN040-V03,3,High,Fast,External,Department
+SCN040,SCN040-V04,4,Medium,Slow,Internal,2-3 hosts
+SCN041,SCN041-V01,1,Low,Fast,Compromised Partner,Department
+SCN041,SCN041-V02,2,High,Slow,Internal,2-3 hosts
+SCN041,SCN041-V03,3,Medium,Moderate,Internal,Department
+SCN041,SCN041-V04,4,Low,Moderate,External,2-3 hosts
+SCN042,SCN042-V01,1,Low,Slow,Compromised Partner,Cross-zone
+SCN042,SCN042-V02,2,High,Moderate,External,Cross-zone
+SCN042,SCN042-V03,3,Low,Moderate,Compromised Partner,Single host
+SCN042,SCN042-V04,4,Medium,Moderate,Compromised Partner,Department
+SCN043,SCN043-V01,1,High,Moderate,Compromised Partner,Department
+SCN043,SCN043-V02,2,Low,Slow,External,Cross-zone
+SCN043,SCN043-V03,3,Low,Slow,Compromised Partner,Department
+SCN043,SCN043-V04,4,High,Fast,Compromised Partner,Single host
+SCN044,SCN044-V01,1,High,Moderate,Compromised Partner,Department
+SCN044,SCN044-V02,2,High,Moderate,External,2-3 hosts
+SCN044,SCN044-V03,3,Low,Fast,Internal,Cross-zone
+SCN044,SCN044-V04,4,Low,Fast,External,2-3 hosts
+SCN045,SCN045-V01,1,Medium,Moderate,Internal,Cross-zone
+SCN045,SCN045-V02,2,High,Slow,Compromised Partner,2-3 hosts
+SCN045,SCN045-V03,3,Medium,Slow,External,Cross-zone
+SCN045,SCN045-V04,4,High,Moderate,Internal,Single host
+SCN046,SCN046-V01,1,High,Moderate,External,Cross-zone
+SCN046,SCN046-V02,2,Medium,Fast,Internal,Single host
+SCN046,SCN046-V03,3,High,Moderate,Compromised Partner,Department
+SCN046,SCN046-V04,4,Low,Moderate,Internal,2-3 hosts
+SCN047,SCN047-V01,1,Low,Moderate,External,2-3 hosts
+SCN047,SCN047-V02,2,High,Slow,Compromised Partner,Single host
+SCN047,SCN047-V03,3,Low,Moderate,External,2-3 hosts
+SCN047,SCN047-V04,4,High,Fast,External,2-3 hosts
+SCN048,SCN048-V01,1,High,Fast,External,Department
+SCN048,SCN048-V02,2,Low,Slow,External,Department
+SCN048,SCN048-V03,3,Low,Fast,Compromised Partner,Department
+SCN048,SCN048-V04,4,Low,Fast,Compromised Partner,Single host
+SCN049,SCN049-V01,1,Low,Fast,Internal,2-3 hosts
+SCN049,SCN049-V02,2,High,Moderate,External,2-3 hosts
+SCN049,SCN049-V03,3,Medium,Fast,External,Cross-zone
+SCN049,SCN049-V04,4,High,Fast,Compromised Partner,Single host
+SCN050,SCN050-V01,1,Medium,Moderate,Internal,Single host
+SCN050,SCN050-V02,2,Medium,Slow,External,Single host
+SCN050,SCN050-V03,3,High,Slow,Compromised Partner,Department
+SCN050,SCN050-V04,4,Medium,Slow,External,Single host
+SCN051,SCN051-V01,1,Medium,Moderate,Internal,Single host
+SCN051,SCN051-V02,2,Medium,Slow,Internal,Single host
+SCN051,SCN051-V03,3,Low,Moderate,Compromised Partner,2-3 hosts
+SCN051,SCN051-V04,4,Low,Fast,Internal,Department
+SCN052,SCN052-V01,1,Medium,Slow,Compromised Partner,Department
+SCN052,SCN052-V02,2,Medium,Slow,Compromised Partner,Cross-zone
+SCN052,SCN052-V03,3,Low,Slow,External,2-3 hosts
+SCN052,SCN052-V04,4,Medium,Moderate,External,Cross-zone
+SCN053,SCN053-V01,1,Medium,Moderate,Internal,Cross-zone
+SCN053,SCN053-V02,2,High,Fast,Internal,Cross-zone
+SCN053,SCN053-V03,3,Medium,Slow,Internal,Department
+SCN053,SCN053-V04,4,Low,Slow,Internal,Single host
+SCN054,SCN054-V01,1,Low,Fast,External,Cross-zone
+SCN054,SCN054-V02,2,Low,Slow,Compromised Partner,Department
+SCN054,SCN054-V03,3,Low,Slow,External,Department
+SCN054,SCN054-V04,4,High,Fast,Internal,Department
+SCN055,SCN055-V01,1,High,Moderate,Compromised Partner,Single host
+SCN055,SCN055-V02,2,Medium,Slow,Internal,Department
+SCN055,SCN055-V03,3,Low,Slow,Compromised Partner,2-3 hosts
+SCN055,SCN055-V04,4,Low,Slow,Internal,2-3 hosts
+SCN056,SCN056-V01,1,Low,Moderate,Compromised Partner,Department
+SCN056,SCN056-V02,2,Low,Moderate,Compromised Partner,2-3 hosts
+SCN056,SCN056-V03,3,Medium,Slow,Compromised Partner,Single host
+SCN056,SCN056-V04,4,High,Slow,Compromised Partner,Department
+SCN057,SCN057-V01,1,Low,Fast,Internal,Department
+SCN057,SCN057-V02,2,Medium,Moderate,External,2-3 hosts
+SCN057,SCN057-V03,3,Low,Slow,Compromised Partner,Cross-zone
+SCN057,SCN057-V04,4,Low,Fast,Compromised Partner,Single host
+SCN058,SCN058-V01,1,Low,Slow,Compromised Partner,2-3 hosts
+SCN058,SCN058-V02,2,Medium,Moderate,Internal,Department
+SCN058,SCN058-V03,3,Low,Moderate,Internal,Department
+SCN058,SCN058-V04,4,High,Slow,External,Single host
+SCN059,SCN059-V01,1,Low,Fast,Compromised Partner,Single host
+SCN059,SCN059-V02,2,High,Fast,Internal,Cross-zone
+SCN059,SCN059-V03,3,High,Moderate,Internal,Cross-zone
+SCN059,SCN059-V04,4,Medium,Moderate,External,Single host
+SCN060,SCN060-V01,1,Medium,Moderate,External,Department
+SCN060,SCN060-V02,2,High,Slow,Compromised Partner,Cross-zone
+SCN060,SCN060-V03,3,High,Slow,Internal,Single host
+SCN060,SCN060-V04,4,Low,Moderate,Compromised Partner,Single host
+SCN061,SCN061-V01,1,Low,Fast,Internal,2-3 hosts
+SCN061,SCN061-V02,2,Low,Moderate,Internal,Department
+SCN061,SCN061-V03,3,Low,Fast,Internal,Cross-zone
+SCN061,SCN061-V04,4,Low,Fast,Internal,2-3 hosts
+SCN062,SCN062-V01,1,High,Slow,Compromised Partner,Department
+SCN062,SCN062-V02,2,Low,Moderate,Compromised Partner,Single host
+SCN062,SCN062-V03,3,Medium,Fast,Internal,Single host
+SCN062,SCN062-V04,4,Medium,Slow,Internal,Cross-zone
+SCN063,SCN063-V01,1,High,Slow,Internal,Department
+SCN063,SCN063-V02,2,Low,Moderate,External,Department
+SCN063,SCN063-V03,3,Low,Slow,Internal,Department
+SCN063,SCN063-V04,4,Low,Moderate,External,2-3 hosts
+SCN064,SCN064-V01,1,Medium,Slow,Internal,Single host
+SCN064,SCN064-V02,2,Medium,Moderate,Compromised Partner,Department
+SCN064,SCN064-V03,3,Low,Moderate,External,Single host
+SCN064,SCN064-V04,4,High,Slow,External,2-3 hosts
+SCN065,SCN065-V01,1,Medium,Moderate,Compromised Partner,2-3 hosts
+SCN065,SCN065-V02,2,Low,Fast,External,Department
+SCN065,SCN065-V03,3,Low,Fast,Compromised Partner,2-3 hosts
+SCN065,SCN065-V04,4,High,Fast,External,Cross-zone
+SCN066,SCN066-V01,1,Medium,Slow,Compromised Partner,Cross-zone
+SCN066,SCN066-V02,2,High,Slow,Compromised Partner,Department
+SCN066,SCN066-V03,3,High,Moderate,External,Cross-zone
+SCN066,SCN066-V04,4,Low,Moderate,Internal,Department
+SCN067,SCN067-V01,1,Medium,Slow,External,Department
+SCN067,SCN067-V02,2,High,Fast,Internal,Cross-zone
+SCN067,SCN067-V03,3,Medium,Fast,External,Department
+SCN067,SCN067-V04,4,Medium,Fast,Compromised Partner,Single host
+SCN068,SCN068-V01,1,High,Slow,Compromised Partner,Cross-zone
+SCN068,SCN068-V02,2,Medium,Slow,Compromised Partner,Single host
+SCN068,SCN068-V03,3,Medium,Slow,Compromised Partner,2-3 hosts
+SCN068,SCN068-V04,4,Medium,Slow,Internal,2-3 hosts
+SCN069,SCN069-V01,1,Low,Moderate,External,Department
+SCN069,SCN069-V02,2,High,Fast,Compromised Partner,2-3 hosts
+SCN069,SCN069-V03,3,Low,Fast,Compromised Partner,Cross-zone
+SCN069,SCN069-V04,4,Medium,Slow,Compromised Partner,2-3 hosts
+SCN070,SCN070-V01,1,Medium,Moderate,Internal,Cross-zone
+SCN070,SCN070-V02,2,Medium,Moderate,Compromised Partner,Single host
+SCN070,SCN070-V03,3,High,Slow,Internal,Single host
+SCN070,SCN070-V04,4,Medium,Fast,Compromised Partner,Cross-zone
+SCN071,SCN071-V01,1,Medium,Moderate,Compromised Partner,2-3 hosts
+SCN071,SCN071-V02,2,Medium,Fast,Compromised Partner,2-3 hosts
+SCN071,SCN071-V03,3,Medium,Moderate,Compromised Partner,Cross-zone
+SCN071,SCN071-V04,4,Low,Slow,Compromised Partner,Single host
+SCN072,SCN072-V01,1,Medium,Slow,Internal,Department
+SCN072,SCN072-V02,2,Low,Slow,Compromised Partner,Single host
+SCN072,SCN072-V03,3,High,Slow,Internal,Department
+SCN072,SCN072-V04,4,Low,Moderate,Internal,2-3 hosts
+SCN073,SCN073-V01,1,Low,Moderate,Internal,2-3 hosts
+SCN073,SCN073-V02,2,Low,Fast,External,Single host
+SCN073,SCN073-V03,3,Medium,Fast,Compromised Partner,Single host
+SCN073,SCN073-V04,4,High,Moderate,Compromised Partner,2-3 hosts
+SCN074,SCN074-V01,1,High,Moderate,External,2-3 hosts
+SCN074,SCN074-V02,2,Low,Slow,Compromised Partner,2-3 hosts
+SCN074,SCN074-V03,3,High,Moderate,External,Cross-zone
+SCN074,SCN074-V04,4,Medium,Slow,Compromised Partner,2-3 hosts
+SCN075,SCN075-V01,1,Medium,Slow,Internal,Cross-zone
+SCN075,SCN075-V02,2,Low,Slow,External,Department
+SCN075,SCN075-V03,3,Medium,Fast,Internal,Cross-zone
+SCN075,SCN075-V04,4,Medium,Moderate,Internal,Cross-zone
+SCN076,SCN076-V01,1,Low,Fast,Compromised Partner,2-3 hosts
+SCN076,SCN076-V02,2,Medium,Fast,Compromised Partner,Cross-zone
+SCN076,SCN076-V03,3,Medium,Slow,External,Single host
+SCN076,SCN076-V04,4,Medium,Fast,External,Department
+SCN077,SCN077-V01,1,Medium,Slow,External,Cross-zone
+SCN077,SCN077-V02,2,Low,Fast,Internal,Department
+SCN077,SCN077-V03,3,Low,Moderate,External,Cross-zone
+SCN077,SCN077-V04,4,High,Moderate,External,Cross-zone
+SCN078,SCN078-V01,1,Low,Moderate,External,Single host
+SCN078,SCN078-V02,2,Medium,Fast,Compromised Partner,Department
+SCN078,SCN078-V03,3,Low,Fast,External,Department
+SCN078,SCN078-V04,4,Medium,Slow,External,Cross-zone
+SCN079,SCN079-V01,1,Medium,Slow,External,Single host
+SCN079,SCN079-V02,2,Low,Moderate,External,2-3 hosts
+SCN079,SCN079-V03,3,High,Slow,Compromised Partner,Cross-zone
+SCN079,SCN079-V04,4,Low,Moderate,External,Department
+SCN080,SCN080-V01,1,Low,Fast,External,Cross-zone
+SCN080,SCN080-V02,2,High,Slow,Internal,Single host
+SCN080,SCN080-V03,3,Low,Moderate,Compromised Partner,Single host
+SCN080,SCN080-V04,4,High,Slow,Compromised Partner,2-3 hosts
+SCN081,SCN081-V01,1,High,Fast,Internal,Cross-zone
+SCN081,SCN081-V02,2,Low,Slow,Internal,2-3 hosts
+SCN081,SCN081-V03,3,High,Moderate,External,Single host
+SCN081,SCN081-V04,4,High,Moderate,External,Single host
+SCN082,SCN082-V01,1,Medium,Moderate,External,Cross-zone
+SCN082,SCN082-V02,2,Medium,Moderate,Compromised Partner,Single host
+SCN082,SCN082-V03,3,Medium,Fast,Internal,2-3 hosts
+SCN082,SCN082-V04,4,High,Slow,Compromised Partner,Single host
+SCN083,SCN083-V01,1,High,Slow,Internal,2-3 hosts
+SCN083,SCN083-V02,2,Low,Moderate,Compromised Partner,Department
+SCN083,SCN083-V03,3,High,Fast,Compromised Partner,Cross-zone
+SCN083,SCN083-V04,4,High,Moderate,Compromised Partner,2-3 hosts
+SCN084,SCN084-V01,1,Low,Fast,Compromised Partner,Cross-zone
+SCN084,SCN084-V02,2,Low,Moderate,External,Single host
+SCN084,SCN084-V03,3,Low,Fast,Internal,Department
+SCN084,SCN084-V04,4,High,Moderate,Compromised Partner,Cross-zone
+SCN085,SCN085-V01,1,Medium,Fast,Compromised Partner,2-3 hosts
+SCN085,SCN085-V02,2,Medium,Moderate,External,Department
+SCN085,SCN085-V03,3,Medium,Fast,Internal,Cross-zone
+SCN085,SCN085-V04,4,Medium,Slow,Internal,Cross-zone
+SCN086,SCN086-V01,1,Medium,Fast,Internal,Cross-zone
+SCN086,SCN086-V02,2,Medium,Slow,Internal,Single host
+SCN086,SCN086-V03,3,High,Moderate,External,Cross-zone
+SCN086,SCN086-V04,4,High,Fast,Compromised Partner,Department
+SCN087,SCN087-V01,1,Medium,Fast,External,Department
+SCN087,SCN087-V02,2,High,Moderate,Internal,Cross-zone
+SCN087,SCN087-V03,3,High,Slow,Internal,2-3 hosts
+SCN087,SCN087-V04,4,High,Moderate,Internal,Cross-zone
+SCN088,SCN088-V01,1,Low,Slow,Internal,Cross-zone
+SCN088,SCN088-V02,2,Medium,Slow,External,Single host
+SCN088,SCN088-V03,3,High,Slow,Internal,Department
+SCN088,SCN088-V04,4,High,Slow,Compromised Partner,2-3 hosts
+SCN089,SCN089-V01,1,Low,Fast,Compromised Partner,Cross-zone
+SCN089,SCN089-V02,2,Low,Fast,External,2-3 hosts
+SCN089,SCN089-V03,3,High,Moderate,Internal,Cross-zone
+SCN089,SCN089-V04,4,High,Fast,Compromised Partner,2-3 hosts
+SCN090,SCN090-V01,1,High,Moderate,Internal,Department
+SCN090,SCN090-V02,2,Medium,Fast,Compromised Partner,2-3 hosts
+SCN090,SCN090-V03,3,High,Moderate,Internal,Department
+SCN090,SCN090-V04,4,High,Moderate,External,Single host
+SCN091,SCN091-V01,1,Low,Slow,External,Cross-zone
+SCN091,SCN091-V02,2,High,Moderate,Compromised Partner,Single host
+SCN091,SCN091-V03,3,Medium,Moderate,Compromised Partner,Cross-zone
+SCN091,SCN091-V04,4,Low,Slow,Internal,Cross-zone
+SCN092,SCN092-V01,1,Low,Fast,External,Single host
+SCN092,SCN092-V02,2,Medium,Fast,Compromised Partner,Cross-zone
+SCN092,SCN092-V03,3,Low,Slow,Internal,Department
+SCN092,SCN092-V04,4,High,Fast,Compromised Partner,Department
+SCN093,SCN093-V01,1,Medium,Fast,Compromised Partner,2-3 hosts
+SCN093,SCN093-V02,2,Medium,Slow,External,Single host
+SCN093,SCN093-V03,3,Low,Fast,External,Cross-zone
+SCN093,SCN093-V04,4,Low,Moderate,Compromised Partner,Department
+SCN094,SCN094-V01,1,Medium,Slow,External,Single host
+SCN094,SCN094-V02,2,Low,Moderate,Internal,Cross-zone
+SCN094,SCN094-V03,3,High,Moderate,Internal,Single host
+SCN094,SCN094-V04,4,Low,Moderate,Compromised Partner,Single host
+SCN095,SCN095-V01,1,Medium,Moderate,Compromised Partner,Department
+SCN095,SCN095-V02,2,Low,Slow,Compromised Partner,2-3 hosts
+SCN095,SCN095-V03,3,Low,Moderate,Compromised Partner,Single host
+SCN095,SCN095-V04,4,Low,Slow,External,Department
+SCN096,SCN096-V01,1,Low,Fast,Internal,2-3 hosts
+SCN096,SCN096-V02,2,Medium,Slow,Internal,Single host
+SCN096,SCN096-V03,3,Medium,Fast,Compromised Partner,Department
+SCN096,SCN096-V04,4,Low,Slow,Internal,Single host
+SCN097,SCN097-V01,1,High,Slow,External,2-3 hosts
+SCN097,SCN097-V02,2,Low,Slow,Compromised Partner,Department
+SCN097,SCN097-V03,3,High,Fast,External,Single host
+SCN097,SCN097-V04,4,Low,Slow,Compromised Partner,Department
+SCN098,SCN098-V01,1,High,Fast,Compromised Partner,Cross-zone
+SCN098,SCN098-V02,2,High,Slow,External,Cross-zone
+SCN098,SCN098-V03,3,High,Slow,Internal,Department
+SCN098,SCN098-V04,4,Medium,Fast,Compromised Partner,Cross-zone
+SCN099,SCN099-V01,1,Medium,Moderate,External,Single host
+SCN099,SCN099-V02,2,Low,Moderate,Internal,Cross-zone
+SCN099,SCN099-V03,3,Medium,Fast,Internal,2-3 hosts
+SCN099,SCN099-V04,4,Medium,Slow,Internal,Department
+SCN100,SCN100-V01,1,Medium,Fast,Internal,Single host
+SCN100,SCN100-V02,2,Medium,Fast,Internal,Single host
+SCN100,SCN100-V03,3,Medium,Moderate,External,2-3 hosts
+SCN100,SCN100-V04,4,Low,Fast,Internal,Cross-zone
