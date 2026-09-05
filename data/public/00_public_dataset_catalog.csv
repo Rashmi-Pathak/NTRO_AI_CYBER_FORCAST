@@ -1,0 +1,9 @@
+Dataset,Primary_Data,Useful_Content,Project_Use,Availability
+CIC-IDS2017,Network flow / PCAP,Benign + common attacks; >80 flow features,General network IDS/attack classification,Public
+CSE-CIC-IDS2018,Network traffic + system logs,"Brute force, Heartbleed, botnet, DoS/DDoS, web attacks, infiltration",Temporal and multi-source behaviour,Public
+UNSW-NB15,Network flow,"2.54M records, 49 features, 9 attack families",General attack classification,Public
+LANL Comprehensive Cyber Events,Auth/process/DNS/network/red-team,Multi-source temporal enterprise events,Sequence modelling and correlation,Public research dataset
+LANL Authentication,Authentication logs,Large-scale user/computer authentication events,Credential and lateral-movement patterns,Public research dataset
+ToN_IoT,IoT/IIoT + Windows/Linux + network telemetry,Heterogeneous telemetry and attacks,OT/IoT behaviour modelling,Public
+CIC IoT 2023,IoT network traffic,33 attacks across 7 categories and 105 devices,IoT attack detection,Public
+BoT-IoT,IoT network traffic / PCAP,"DDoS, DoS, scans, keylogging, exfiltration",Botnet and IoT attack patterns,Public
