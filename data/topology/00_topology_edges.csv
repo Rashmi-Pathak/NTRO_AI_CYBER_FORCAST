@@ -1,0 +1,111 @@
+SECTOR,SOURCE_ASSET,DESTINATION_ASSET,PROTOCOL,POLICY,RELATION
+Government Data Centres,S01-GW01,S01-APP01,TCP,Allowed,Application
+Government Data Centres,S01-APP01,S01-AUTH01,TCP,Allowed,Authentication
+Government Data Centres,S01-AUTH01,S01-DB01,TCP,Allowed,Application
+Government Data Centres,S01-DB01,S01-WS01,TCP,Allowed,Management
+Government Data Centres,S01-WS01,S01-MGMT01,TCP,Allowed,Authentication
+Government Data Centres,S01-MGMT01,S01-BKP01,TCP,Allowed,Backup
+Government Data Centres,S01-BKP01,S01-MON01,TCP,Allowed,Management
+Government Data Centres,S01-MON01,S01-VPN01,TCP,Allowed,Management
+Government Data Centres,S01-VPN01,S01-CTRL01,TCP,Allowed,Backup
+Government Data Centres,S01-GW01,S01-MGMT01,TCP,Allowed,Management
+Government Data Centres,S01-APP01,S01-VPN01,TCP,Allowed,RemoteAccess
+Power Infrastructure,S02-GW01,S02-APP01,TCP,Allowed,Management
+Power Infrastructure,S02-APP01,S02-AUTH01,TCP,Allowed,Backup
+Power Infrastructure,S02-AUTH01,S02-DB01,TCP,Allowed,Backup
+Power Infrastructure,S02-DB01,S02-WS01,TCP,Allowed,Management
+Power Infrastructure,S02-WS01,S02-MGMT01,TCP,Allowed,Application
+Power Infrastructure,S02-MGMT01,S02-BKP01,TCP,Allowed,Application
+Power Infrastructure,S02-BKP01,S02-MON01,TCP,Allowed,Backup
+Power Infrastructure,S02-MON01,S02-VPN01,TCP,Allowed,Authentication
+Power Infrastructure,S02-VPN01,S02-CTRL01,TCP,Allowed,Backup
+Power Infrastructure,S02-GW01,S02-MGMT01,TCP,Allowed,Management
+Power Infrastructure,S02-APP01,S02-VPN01,TCP,Allowed,RemoteAccess
+Telecom,S03-GW01,S03-APP01,TCP,Allowed,Backup
+Telecom,S03-APP01,S03-AUTH01,TCP,Allowed,Backup
+Telecom,S03-AUTH01,S03-DB01,TCP,Allowed,Application
+Telecom,S03-DB01,S03-WS01,TCP,Allowed,Application
+Telecom,S03-WS01,S03-MGMT01,TCP,Allowed,Application
+Telecom,S03-MGMT01,S03-BKP01,TCP,Allowed,Backup
+Telecom,S03-BKP01,S03-MON01,TCP,Allowed,Authentication
+Telecom,S03-MON01,S03-VPN01,TCP,Allowed,Application
+Telecom,S03-VPN01,S03-CTRL01,TCP,Allowed,Management
+Telecom,S03-GW01,S03-MGMT01,TCP,Allowed,Management
+Telecom,S03-APP01,S03-VPN01,TCP,Allowed,RemoteAccess
+Railways,S04-GW01,S04-APP01,TCP,Allowed,Management
+Railways,S04-APP01,S04-AUTH01,TCP,Allowed,Management
+Railways,S04-AUTH01,S04-DB01,TCP,Allowed,Backup
+Railways,S04-DB01,S04-WS01,TCP,Allowed,Management
+Railways,S04-WS01,S04-MGMT01,TCP,Allowed,Backup
+Railways,S04-MGMT01,S04-BKP01,TCP,Allowed,Management
+Railways,S04-BKP01,S04-MON01,TCP,Allowed,Authentication
+Railways,S04-MON01,S04-VPN01,TCP,Allowed,Backup
+Railways,S04-VPN01,S04-CTRL01,TCP,Allowed,Management
+Railways,S04-GW01,S04-MGMT01,TCP,Allowed,Management
+Railways,S04-APP01,S04-VPN01,TCP,Allowed,RemoteAccess
+Airports,S05-GW01,S05-APP01,TCP,Allowed,Application
+Airports,S05-APP01,S05-AUTH01,TCP,Allowed,Backup
+Airports,S05-AUTH01,S05-DB01,TCP,Allowed,Application
+Airports,S05-DB01,S05-WS01,TCP,Allowed,Application
+Airports,S05-WS01,S05-MGMT01,TCP,Allowed,Application
+Airports,S05-MGMT01,S05-BKP01,TCP,Allowed,Application
+Airports,S05-BKP01,S05-MON01,TCP,Allowed,Management
+Airports,S05-MON01,S05-VPN01,TCP,Allowed,Management
+Airports,S05-VPN01,S05-CTRL01,TCP,Allowed,Backup
+Airports,S05-GW01,S05-MGMT01,TCP,Allowed,Management
+Airports,S05-APP01,S05-VPN01,TCP,Allowed,RemoteAccess
+Defence Networks,S06-GW01,S06-APP01,TCP,Allowed,Backup
+Defence Networks,S06-APP01,S06-AUTH01,TCP,Allowed,Backup
+Defence Networks,S06-AUTH01,S06-DB01,TCP,Allowed,Management
+Defence Networks,S06-DB01,S06-WS01,TCP,Allowed,Backup
+Defence Networks,S06-WS01,S06-MGMT01,TCP,Allowed,Application
+Defence Networks,S06-MGMT01,S06-BKP01,TCP,Allowed,Management
+Defence Networks,S06-BKP01,S06-MON01,TCP,Allowed,Backup
+Defence Networks,S06-MON01,S06-VPN01,TCP,Allowed,Application
+Defence Networks,S06-VPN01,S06-CTRL01,TCP,Allowed,Backup
+Defence Networks,S06-GW01,S06-MGMT01,TCP,Allowed,Management
+Defence Networks,S06-APP01,S06-VPN01,TCP,Allowed,RemoteAccess
+Government Financial Systems,S07-GW01,S07-APP01,TCP,Allowed,Authentication
+Government Financial Systems,S07-APP01,S07-AUTH01,TCP,Allowed,Backup
+Government Financial Systems,S07-AUTH01,S07-DB01,TCP,Allowed,Authentication
+Government Financial Systems,S07-DB01,S07-WS01,TCP,Allowed,Backup
+Government Financial Systems,S07-WS01,S07-MGMT01,TCP,Allowed,Backup
+Government Financial Systems,S07-MGMT01,S07-BKP01,TCP,Allowed,Management
+Government Financial Systems,S07-BKP01,S07-MON01,TCP,Allowed,Management
+Government Financial Systems,S07-MON01,S07-VPN01,TCP,Allowed,Authentication
+Government Financial Systems,S07-VPN01,S07-CTRL01,TCP,Allowed,Management
+Government Financial Systems,S07-GW01,S07-MGMT01,TCP,Allowed,Management
+Government Financial Systems,S07-APP01,S07-VPN01,TCP,Allowed,RemoteAccess
+Government Healthcare,S08-GW01,S08-APP01,TCP,Allowed,Application
+Government Healthcare,S08-APP01,S08-AUTH01,TCP,Allowed,Application
+Government Healthcare,S08-AUTH01,S08-DB01,TCP,Allowed,Authentication
+Government Healthcare,S08-DB01,S08-WS01,TCP,Allowed,Application
+Government Healthcare,S08-WS01,S08-MGMT01,TCP,Allowed,Application
+Government Healthcare,S08-MGMT01,S08-BKP01,TCP,Allowed,Backup
+Government Healthcare,S08-BKP01,S08-MON01,TCP,Allowed,Management
+Government Healthcare,S08-MON01,S08-VPN01,TCP,Allowed,Application
+Government Healthcare,S08-VPN01,S08-CTRL01,TCP,Allowed,Application
+Government Healthcare,S08-GW01,S08-MGMT01,TCP,Allowed,Management
+Government Healthcare,S08-APP01,S08-VPN01,TCP,Allowed,RemoteAccess
+Space Infrastructure,S09-GW01,S09-APP01,TCP,Allowed,Management
+Space Infrastructure,S09-APP01,S09-AUTH01,TCP,Allowed,Application
+Space Infrastructure,S09-AUTH01,S09-DB01,TCP,Allowed,Application
+Space Infrastructure,S09-DB01,S09-WS01,TCP,Allowed,Management
+Space Infrastructure,S09-WS01,S09-MGMT01,TCP,Allowed,Backup
+Space Infrastructure,S09-MGMT01,S09-BKP01,TCP,Allowed,Application
+Space Infrastructure,S09-BKP01,S09-MON01,TCP,Allowed,Management
+Space Infrastructure,S09-MON01,S09-VPN01,TCP,Allowed,Application
+Space Infrastructure,S09-VPN01,S09-CTRL01,TCP,Allowed,Application
+Space Infrastructure,S09-GW01,S09-MGMT01,TCP,Allowed,Management
+Space Infrastructure,S09-APP01,S09-VPN01,TCP,Allowed,RemoteAccess
+State Government Networks,S10-GW01,S10-APP01,TCP,Allowed,Backup
+State Government Networks,S10-APP01,S10-AUTH01,TCP,Allowed,Authentication
+State Government Networks,S10-AUTH01,S10-DB01,TCP,Allowed,Authentication
+State Government Networks,S10-DB01,S10-WS01,TCP,Allowed,Management
+State Government Networks,S10-WS01,S10-MGMT01,TCP,Allowed,Authentication
+State Government Networks,S10-MGMT01,S10-BKP01,TCP,Allowed,Management
+State Government Networks,S10-BKP01,S10-MON01,TCP,Allowed,Authentication
+State Government Networks,S10-MON01,S10-VPN01,TCP,Allowed,Backup
+State Government Networks,S10-VPN01,S10-CTRL01,TCP,Allowed,Management
+State Government Networks,S10-GW01,S10-MGMT01,TCP,Allowed,Management
+State Government Networks,S10-APP01,S10-VPN01,TCP,Allowed,RemoteAccess
