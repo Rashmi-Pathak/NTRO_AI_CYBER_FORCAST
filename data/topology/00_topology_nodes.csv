@@ -1,0 +1,101 @@
+ASSET_ID,SECTOR,DEPARTMENT,ASSET_TYPE,ASSET_CRITICALITY,ASSET_ZONE
+S01-GW01,Government Data Centres,DEPT-01,Internet Gateway,High,DMZ
+S01-APP01,Government Data Centres,DEPT-01,Web/Application Server,High,DMZ
+S01-AUTH01,Government Data Centres,DEPT-01,Authentication Server,Critical,Internal
+S01-DB01,Government Data Centres,DEPT-01,Database Server,Critical,Internal
+S01-WS01,Government Data Centres,DEPT-01,User Workstation,Medium,Internal
+S01-MGMT01,Government Data Centres,DEPT-01,Management Server,Critical,Internal
+S01-BKP01,Government Data Centres,DEPT-01,Backup Server,Critical,Internal
+S01-MON01,Government Data Centres,DEPT-01,Monitoring Server,High,Internal
+S01-VPN01,Government Data Centres,DEPT-01,Remote Access Gateway,High,DMZ
+S01-CTRL01,Government Data Centres,DEPT-01,Sector-Specific Controller,Critical,OT
+S02-GW01,Power Infrastructure,DEPT-02,Internet Gateway,High,DMZ
+S02-APP01,Power Infrastructure,DEPT-02,Web/Application Server,High,DMZ
+S02-AUTH01,Power Infrastructure,DEPT-02,Authentication Server,Critical,Internal
+S02-DB01,Power Infrastructure,DEPT-02,Database Server,Critical,Internal
+S02-WS01,Power Infrastructure,DEPT-02,User Workstation,Medium,Internal
+S02-MGMT01,Power Infrastructure,DEPT-02,Management Server,Critical,Internal
+S02-BKP01,Power Infrastructure,DEPT-02,Backup Server,Critical,Internal
+S02-MON01,Power Infrastructure,DEPT-02,Monitoring Server,High,Internal
+S02-VPN01,Power Infrastructure,DEPT-02,Remote Access Gateway,High,DMZ
+S02-CTRL01,Power Infrastructure,DEPT-02,Sector-Specific Controller,Critical,OT
+S03-GW01,Telecom,DEPT-03,Internet Gateway,High,DMZ
+S03-APP01,Telecom,DEPT-03,Web/Application Server,High,DMZ
+S03-AUTH01,Telecom,DEPT-03,Authentication Server,Critical,Internal
+S03-DB01,Telecom,DEPT-03,Database Server,Critical,Internal
+S03-WS01,Telecom,DEPT-03,User Workstation,Medium,Internal
+S03-MGMT01,Telecom,DEPT-03,Management Server,Critical,Internal
+S03-BKP01,Telecom,DEPT-03,Backup Server,Critical,Internal
+S03-MON01,Telecom,DEPT-03,Monitoring Server,High,Internal
+S03-VPN01,Telecom,DEPT-03,Remote Access Gateway,High,DMZ
+S03-CTRL01,Telecom,DEPT-03,Sector-Specific Controller,Critical,OT
+S04-GW01,Railways,DEPT-04,Internet Gateway,High,DMZ
+S04-APP01,Railways,DEPT-04,Web/Application Server,High,DMZ
+S04-AUTH01,Railways,DEPT-04,Authentication Server,Critical,Internal
+S04-DB01,Railways,DEPT-04,Database Server,Critical,Internal
+S04-WS01,Railways,DEPT-04,User Workstation,Medium,Internal
+S04-MGMT01,Railways,DEPT-04,Management Server,Critical,Internal
+S04-BKP01,Railways,DEPT-04,Backup Server,Critical,Internal
+S04-MON01,Railways,DEPT-04,Monitoring Server,High,Internal
+S04-VPN01,Railways,DEPT-04,Remote Access Gateway,High,DMZ
+S04-CTRL01,Railways,DEPT-04,Sector-Specific Controller,Critical,OT
+S05-GW01,Airports,DEPT-05,Internet Gateway,High,DMZ
+S05-APP01,Airports,DEPT-05,Web/Application Server,High,DMZ
+S05-AUTH01,Airports,DEPT-05,Authentication Server,Critical,Internal
+S05-DB01,Airports,DEPT-05,Database Server,Critical,Internal
+S05-WS01,Airports,DEPT-05,User Workstation,Medium,Internal
+S05-MGMT01,Airports,DEPT-05,Management Server,Critical,Internal
+S05-BKP01,Airports,DEPT-05,Backup Server,Critical,Internal
+S05-MON01,Airports,DEPT-05,Monitoring Server,High,Internal
+S05-VPN01,Airports,DEPT-05,Remote Access Gateway,High,DMZ
+S05-CTRL01,Airports,DEPT-05,Sector-Specific Controller,Critical,OT
+S06-GW01,Defence Networks,DEPT-06,Internet Gateway,High,DMZ
+S06-APP01,Defence Networks,DEPT-06,Web/Application Server,High,DMZ
+S06-AUTH01,Defence Networks,DEPT-06,Authentication Server,Critical,Internal
+S06-DB01,Defence Networks,DEPT-06,Database Server,Critical,Internal
+S06-WS01,Defence Networks,DEPT-06,User Workstation,Medium,Internal
+S06-MGMT01,Defence Networks,DEPT-06,Management Server,Critical,Internal
+S06-BKP01,Defence Networks,DEPT-06,Backup Server,Critical,Internal
+S06-MON01,Defence Networks,DEPT-06,Monitoring Server,High,Internal
+S06-VPN01,Defence Networks,DEPT-06,Remote Access Gateway,High,DMZ
+S06-CTRL01,Defence Networks,DEPT-06,Sector-Specific Controller,Critical,OT
+S07-GW01,Government Financial Systems,DEPT-07,Internet Gateway,High,DMZ
+S07-APP01,Government Financial Systems,DEPT-07,Web/Application Server,High,DMZ
+S07-AUTH01,Government Financial Systems,DEPT-07,Authentication Server,Critical,Internal
+S07-DB01,Government Financial Systems,DEPT-07,Database Server,Critical,Internal
+S07-WS01,Government Financial Systems,DEPT-07,User Workstation,Medium,Internal
+S07-MGMT01,Government Financial Systems,DEPT-07,Management Server,Critical,Internal
+S07-BKP01,Government Financial Systems,DEPT-07,Backup Server,Critical,Internal
+S07-MON01,Government Financial Systems,DEPT-07,Monitoring Server,High,Internal
+S07-VPN01,Government Financial Systems,DEPT-07,Remote Access Gateway,High,DMZ
+S07-CTRL01,Government Financial Systems,DEPT-07,Sector-Specific Controller,Critical,OT
+S08-GW01,Government Healthcare,DEPT-08,Internet Gateway,High,DMZ
+S08-APP01,Government Healthcare,DEPT-08,Web/Application Server,High,DMZ
+S08-AUTH01,Government Healthcare,DEPT-08,Authentication Server,Critical,Internal
+S08-DB01,Government Healthcare,DEPT-08,Database Server,Critical,Internal
+S08-WS01,Government Healthcare,DEPT-08,User Workstation,Medium,Internal
+S08-MGMT01,Government Healthcare,DEPT-08,Management Server,Critical,Internal
+S08-BKP01,Government Healthcare,DEPT-08,Backup Server,Critical,Internal
+S08-MON01,Government Healthcare,DEPT-08,Monitoring Server,High,Internal
+S08-VPN01,Government Healthcare,DEPT-08,Remote Access Gateway,High,DMZ
+S08-CTRL01,Government Healthcare,DEPT-08,Sector-Specific Controller,Critical,OT
+S09-GW01,Space Infrastructure,DEPT-09,Internet Gateway,High,DMZ
+S09-APP01,Space Infrastructure,DEPT-09,Web/Application Server,High,DMZ
+S09-AUTH01,Space Infrastructure,DEPT-09,Authentication Server,Critical,Internal
+S09-DB01,Space Infrastructure,DEPT-09,Database Server,Critical,Internal
+S09-WS01,Space Infrastructure,DEPT-09,User Workstation,Medium,Internal
+S09-MGMT01,Space Infrastructure,DEPT-09,Management Server,Critical,Internal
+S09-BKP01,Space Infrastructure,DEPT-09,Backup Server,Critical,Internal
+S09-MON01,Space Infrastructure,DEPT-09,Monitoring Server,High,Internal
+S09-VPN01,Space Infrastructure,DEPT-09,Remote Access Gateway,High,DMZ
+S09-CTRL01,Space Infrastructure,DEPT-09,Sector-Specific Controller,Critical,OT
+S10-GW01,State Government Networks,DEPT-10,Internet Gateway,High,DMZ
+S10-APP01,State Government Networks,DEPT-10,Web/Application Server,High,DMZ
+S10-AUTH01,State Government Networks,DEPT-10,Authentication Server,Critical,Internal
+S10-DB01,State Government Networks,DEPT-10,Database Server,Critical,Internal
+S10-WS01,State Government Networks,DEPT-10,User Workstation,Medium,Internal
+S10-MGMT01,State Government Networks,DEPT-10,Management Server,Critical,Internal
+S10-BKP01,State Government Networks,DEPT-10,Backup Server,Critical,Internal
+S10-MON01,State Government Networks,DEPT-10,Monitoring Server,High,Internal
+S10-VPN01,State Government Networks,DEPT-10,Remote Access Gateway,High,DMZ
+S10-CTRL01,State Government Networks,DEPT-10,Sector-Specific Controller,Critical,OT
