@@ -1,0 +1,101 @@
+SCENARIO_ID,SECTOR,ATTACK_SCENARIO,ATTACK_STAGE_PATH,BASE_RISK,EXPECTED_SCOPE
+SCN001,Government Data Centres,Network Reconnaissance,Reconnaissance -> Discovery -> Initial Access -> Execution,High,Cross-zone
+SCN002,Government Data Centres,Brute Force,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,High,Single asset
+SCN003,Government Data Centres,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Low,Cross-zone
+SCN004,Government Data Centres,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Single asset
+SCN005,Government Data Centres,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Multiple departments
+SCN006,Government Data Centres,Database Exfiltration,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,Medium,Multiple departments
+SCN007,Government Data Centres,DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Low,Department
+SCN008,Government Data Centres,Web Application Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Multiple departments
+SCN009,Government Data Centres,Privilege Escalation,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Cross-zone
+SCN010,Government Data Centres,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN011,Power Infrastructure,IT-to-OT Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN012,Power Infrastructure,SCADA Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN013,Power Infrastructure,OT Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Low,Single asset
+SCN014,Power Infrastructure,Sensor Manipulation,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN015,Power Infrastructure,OT Denial of Service,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,High,Department
+SCN016,Power Infrastructure,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,High,Department
+SCN017,Power Infrastructure,Engineering Workstation Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Cross-zone
+SCN018,Power Infrastructure,PLC Command Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN019,Power Infrastructure,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Cross-zone
+SCN020,Power Infrastructure,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN021,Telecom,Signalling Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Multiple departments
+SCN022,Telecom,DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Multiple departments
+SCN023,Telecom,Network Device Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Cross-zone
+SCN024,Telecom,DNS Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Single asset
+SCN025,Telecom,VPN Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Single asset
+SCN026,Telecom,Botnet Activity,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Single asset
+SCN027,Telecom,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,High,Department
+SCN028,Telecom,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Department
+SCN029,Telecom,API Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Multiple departments
+SCN030,Telecom,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN031,Railways,Ticketing DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,High,Department
+SCN032,Railways,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Single asset
+SCN033,Railways,Credential Theft,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Cross-zone
+SCN034,Railways,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Department
+SCN035,Railways,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Department
+SCN036,Railways,Station System Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Single asset
+SCN037,Railways,Maintenance Workstation Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN038,Railways,Operational Network Recon,Reconnaissance -> Discovery -> Initial Access -> Execution,Critical,Department
+SCN039,Railways,Data Exfiltration,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Department
+SCN040,Railways,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Cross-zone
+SCN041,Airports,Passenger-Service DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Low,Cross-zone
+SCN042,Airports,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Department
+SCN043,Airports,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Critical,Multiple departments
+SCN044,Airports,Third-Party Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Department
+SCN045,Airports,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Single asset
+SCN046,Airports,Operational Reconnaissance,Reconnaissance -> Discovery -> Initial Access -> Execution,Medium,Cross-zone
+SCN047,Airports,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Multiple departments
+SCN048,Airports,Data Exfiltration,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,Low,Multiple departments
+SCN049,Airports,Web Application Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Cross-zone
+SCN050,Airports,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN051,Defence Networks,Spear Phishing,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Low,Multiple departments
+SCN052,Defence Networks,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Medium,Multiple departments
+SCN053,Defence Networks,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Single asset
+SCN054,Defence Networks,Data Theft,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,Critical,Multiple departments
+SCN055,Defence Networks,Supply-Chain Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Cross-zone
+SCN056,Defence Networks,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Cross-zone
+SCN057,Defence Networks,Privilege Escalation,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN058,Defence Networks,Internal Reconnaissance,Reconnaissance -> Discovery -> Initial Access -> Execution,Low,Cross-zone
+SCN059,Defence Networks,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Department
+SCN060,Defence Networks,Persistence,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Cross-zone
+SCN061,Government Financial Systems,Account Takeover,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Low,Multiple departments
+SCN062,Government Financial Systems,API Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Single asset
+SCN063,Government Financial Systems,Database Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Multiple departments
+SCN064,Government Financial Systems,DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Critical,Multiple departments
+SCN065,Government Financial Systems,Privilege Escalation,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Multiple departments
+SCN066,Government Financial Systems,Data Exfiltration,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,Medium,Department
+SCN067,Government Financial Systems,Credential Stuffing,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Critical,Cross-zone
+SCN068,Government Financial Systems,Web Application Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN069,Government Financial Systems,Insider Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Single asset
+SCN070,Government Financial Systems,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Multiple departments
+SCN071,Government Healthcare,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Cross-zone
+SCN072,Government Healthcare,Patient-Data Theft,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Cross-zone
+SCN073,Government Healthcare,Medical-Device Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Cross-zone
+SCN074,Government Healthcare,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Medium,Cross-zone
+SCN075,Government Healthcare,DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Medium,Single asset
+SCN076,Government Healthcare,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Multiple departments
+SCN077,Government Healthcare,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Department
+SCN078,Government Healthcare,Database Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Department
+SCN079,Government Healthcare,Web Application Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Department
+SCN080,Government Healthcare,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Low,Single asset
+SCN081,Space Infrastructure,Ground-Station Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Cross-zone
+SCN082,Space Infrastructure,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Low,Cross-zone
+SCN083,Space Infrastructure,Command-Service Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Department
+SCN084,Space Infrastructure,Data Theft,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,Critical,Cross-zone
+SCN085,Space Infrastructure,Supply-Chain Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Department
+SCN086,Space Infrastructure,Remote Access Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Single asset
+SCN087,Space Infrastructure,Ground-Network Recon,Reconnaissance -> Discovery -> Initial Access -> Execution,Low,Cross-zone
+SCN088,Space Infrastructure,Persistence,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Department
+SCN089,Space Infrastructure,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Single asset
+SCN090,Space Infrastructure,Availability Attack,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Single asset
+SCN091,State Government Networks,Coordinated Multi-District Campaign,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Department
+SCN092,State Government Networks,Ransomware,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Critical,Multiple departments
+SCN093,State Government Networks,DDoS,Reconnaissance -> Initial Access -> Execution -> Discovery -> Lateral Movement -> Collection -> Impact,Critical,Cross-zone
+SCN094,State Government Networks,Credential Compromise,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Lateral Movement -> Collection,Critical,Department
+SCN095,State Government Networks,Web Compromise,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Cross-zone
+SCN096,State Government Networks,Data Theft,Reconnaissance -> Initial Access -> Credential Access -> Discovery -> Collection -> Exfiltration,High,Department
+SCN097,State Government Networks,Privilege Escalation,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Cross-zone
+SCN098,State Government Networks,Lateral Movement,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Medium,Multiple departments
+SCN099,State Government Networks,DNS Abuse,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,Critical,Single asset
+SCN100,State Government Networks,Command and Control,Reconnaissance -> Initial Access -> Execution -> Persistence -> Privilege Escalation -> Discovery -> Lateral Movement -> Command and Control,High,Department
