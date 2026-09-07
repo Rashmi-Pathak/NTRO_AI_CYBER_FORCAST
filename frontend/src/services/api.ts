@@ -181,6 +181,389 @@ export const mockForecasts: Forecast[] = [
     recommendations: [
       { text: 'Isolate ENG-WS-02 from OT Network', level: 'Critical' }
     ]
+  },
+  {
+    id: 'FCST-0023',
+    detected: 'Sep 05, 14:27:00',
+    attackType: 'Phishing Campaign',
+    sector: 'Telecom',
+    currentStage: 'Reconnaissance',
+    predictedStage: 'Initial Access',
+    targetAsset: 'VPN-GW-01',
+    probability: 76.8,
+    risk: 'High',
+    timeWindow: '10 - 20 min',
+    status: 'Active',
+    eventId: 'EVT-004221',
+    sourceAsset: {
+      id: 'External-IP', ip: '185.15.2.4', type: 'External Network', department: 'N/A', user: 'N/A', location: 'Unknown', zone: 'External', criticality: 'Low', os: 'Unknown', firstSeen: 'Sep 05, 2026'
+    },
+    destinationAsset: {
+      id: 'VPN-GW-01', ip: '203.0.113.12', type: 'VPN Gateway', department: 'IT Security', location: 'Data Center B', zone: 'DMZ', criticality: 'Critical', service: 'HTTPS (443)', classification: 'Restricted', owner: 'Telecom SecOps'
+    },
+    evidence: [
+      { label: 'Email', text: 'Mass influx of suspicious emails with identical payloads' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Email', text: 'Normal traffic volume' }
+      ],
+      current: [
+        { label: 'Email', text: 'Spike in inbound emails with malicious attachments', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:15:00', event: 'Suspicious domain registration detected', status: 'info' },
+      { time: '14:27:00', event: 'CURRENT STATE: Reconnaissance', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1566', desc: 'Phishing' }
+    ],
+    blastRadius: {
+      assets: 15, departments: 4, zones: 3, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'SMTP',
+      'Source IP': '185.15.2.4',
+    },
+    recommendations: [
+      { text: 'Block sender domain at email gateway', level: 'High' }
+    ]
+  },
+  {
+    id: 'FCST-0024',
+    detected: 'Sep 05, 14:26:00',
+    attackType: 'Data Exfiltration',
+    sector: 'Healthcare',
+    currentStage: 'Execution',
+    predictedStage: 'Collection',
+    targetAsset: 'EHR-SRV-02',
+    probability: 71.5,
+    risk: 'High',
+    timeWindow: '15 - 25 min',
+    status: 'Investigating',
+    eventId: 'EVT-004222',
+    sourceAsset: {
+      id: 'CLINIC-PC-12', ip: '10.10.5.22', type: 'Workstation', department: 'Cardiology', user: 'dr_smith', location: 'City Hospital', zone: 'Internal', criticality: 'Medium', os: 'Windows 10', firstSeen: 'Feb 10, 2026'
+    },
+    destinationAsset: {
+      id: 'EHR-SRV-02', ip: '10.10.1.50', type: 'Database Server', department: 'Records', location: 'City Hospital', zone: 'Secure Enclave', criticality: 'Critical', service: 'SQL (1433)', classification: 'Confidential', owner: 'Health Dept'
+    },
+    evidence: [
+      { label: 'Network', text: 'Large outbound data transfer to unknown IP' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Data', text: 'Minimal external transfers' }
+      ],
+      current: [
+        { label: 'Data', text: '2GB transferred externally in 5 mins', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:20:00', event: 'Unusual database queries detected', status: 'alert' },
+      { time: '14:26:00', event: 'CURRENT STATE: Execution', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1048', desc: 'Exfiltration Over Alternative Protocol' }
+    ],
+    blastRadius: {
+      assets: 2, departments: 1, zones: 2, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'HTTPS',
+      'Destination IP': '10.10.1.50',
+    },
+    recommendations: [
+      { text: 'Block outbound traffic from CLINIC-PC-12', level: 'Critical' }
+    ]
+  },
+  {
+    id: 'FCST-0025',
+    detected: 'Sep 05, 14:25:00',
+    attackType: 'DDoS Attack',
+    sector: 'Finance & Banking',
+    currentStage: 'Impact',
+    predictedStage: 'Service Disruption',
+    targetAsset: 'WEB-CLUSTER-01',
+    probability: 68.3,
+    risk: 'High',
+    timeWindow: '5 - 12 min',
+    status: 'Active',
+    eventId: 'EVT-004223',
+    sourceAsset: {
+      id: 'Botnet-Swarm', ip: 'Multiple', type: 'External Network', department: 'N/A', user: 'N/A', location: 'Global', zone: 'External', criticality: 'Low', os: 'Various', firstSeen: 'Sep 05, 2026'
+    },
+    destinationAsset: {
+      id: 'WEB-CLUSTER-01', ip: '203.0.113.80', type: 'Load Balancer', department: 'Online Banking', location: 'Data Center A', zone: 'DMZ', criticality: 'Critical', service: 'HTTPS (443)', classification: 'Public', owner: 'Bank IT'
+    },
+    evidence: [
+      { label: 'Traffic', text: 'Massive spike in SYN packets from globally distributed IPs' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Traffic', text: '10k requests/min' }
+      ],
+      current: [
+        { label: 'Traffic', text: '500k requests/min (↑ 4900%)', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:22:00', event: 'Initial traffic spike detected', status: 'info' },
+      { time: '14:25:00', event: 'CURRENT STATE: Impact', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1498', desc: 'Network Denial of Service' }
+    ],
+    blastRadius: {
+      assets: 12, departments: 2, zones: 1, criticalServices: 3
+    },
+    networkEvidence: {
+      'Protocol': 'TCP/SYN',
+      'Destination Port': '443',
+    },
+    recommendations: [
+      { text: 'Activate DDoS mitigation scrubbing center', level: 'Critical' }
+    ]
+  },
+  {
+    id: 'FCST-0026',
+    detected: 'Sep 05, 14:24:00',
+    attackType: 'Insider Threat',
+    sector: 'IT & SaaS',
+    currentStage: 'Collection',
+    predictedStage: 'Exfiltration',
+    targetAsset: 'DB-SRV-07',
+    probability: 64.7,
+    risk: 'Medium',
+    timeWindow: '20 - 40 min',
+    status: 'Monitoring',
+    eventId: 'EVT-004224',
+    sourceAsset: {
+      id: 'DEV-LAPTOP-44', ip: '10.0.8.15', type: 'Laptop', department: 'Engineering', user: 'dev_john', location: 'Remote', zone: 'VPN', criticality: 'Medium', os: 'macOS', firstSeen: 'Mar 12, 2025'
+    },
+    destinationAsset: {
+      id: 'DB-SRV-07', ip: '10.0.1.100', type: 'Database', department: 'Core Services', location: 'Cloud AWS', zone: 'Private Subnet', criticality: 'High', service: 'PostgreSQL (5432)', classification: 'Restricted', owner: 'Data Team'
+    },
+    evidence: [
+      { label: 'Access', text: 'Unusual bulk download of customer records by developer' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Access', text: 'Querying specific records' }
+      ],
+      current: [
+        { label: 'Access', text: 'SELECT * without limits', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:15:00', event: 'User logged in via VPN', status: 'normal' },
+      { time: '14:24:00', event: 'CURRENT STATE: Collection', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1530', desc: 'Data from Cloud Storage Object' }
+    ],
+    blastRadius: {
+      assets: 1, departments: 1, zones: 1, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'PostgreSQL',
+      'Source IP': '10.0.8.15',
+    },
+    recommendations: [
+      { text: 'Temporarily revoke database access for dev_john', level: 'High' }
+    ]
+  },
+  {
+    id: 'FCST-0027',
+    detected: 'Sep 05, 14:22:00',
+    attackType: 'Ransomware',
+    sector: 'Manufacturing',
+    currentStage: 'Initial Access',
+    predictedStage: 'Execution',
+    targetAsset: 'FILE-SRV-03',
+    probability: 61.2,
+    risk: 'Medium',
+    timeWindow: '18 - 35 min',
+    status: 'Active',
+    eventId: 'EVT-004225',
+    sourceAsset: {
+      id: 'HR-PC-01', ip: '192.168.1.50', type: 'Workstation', department: 'HR', user: 'hr_manager', location: 'Branch Office', zone: 'Internal', criticality: 'Medium', os: 'Windows 10', firstSeen: 'Jun 22, 2024'
+    },
+    destinationAsset: {
+      id: 'FILE-SRV-03', ip: '192.168.10.10', type: 'File Server', department: 'Corporate', location: 'HQ', zone: 'Internal', criticality: 'High', service: 'SMB (445)', classification: 'Confidential', owner: 'IT'
+    },
+    evidence: [
+      { label: 'File', text: 'Multiple file renaming events with suspicious extensions' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'File I/O', text: 'Low volume of modifications' }
+      ],
+      current: [
+        { label: 'File I/O', text: 'High volume encryption behavior', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:20:00', event: 'Suspicious email attachment opened', status: 'alert' },
+      { time: '14:22:00', event: 'CURRENT STATE: Initial Access', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1486', desc: 'Data Encrypted for Impact' }
+    ],
+    blastRadius: {
+      assets: 25, departments: 3, zones: 2, criticalServices: 2
+    },
+    networkEvidence: {
+      'Protocol': 'SMB',
+      'Destination Port': '445',
+    },
+    recommendations: [
+      { text: 'Isolate HR-PC-01 and FILE-SRV-03 from network', level: 'Critical' }
+    ]
+  },
+  {
+    id: 'FCST-0028',
+    detected: 'Sep 05, 14:21:00',
+    attackType: 'Supply Chain Attack',
+    sector: 'Education',
+    currentStage: 'Reconnaissance',
+    predictedStage: 'Initial Access',
+    targetAsset: 'EDU-PORTAL-01',
+    probability: 58.9,
+    risk: 'Medium',
+    timeWindow: '25 - 50 min',
+    status: 'Monitoring',
+    eventId: 'EVT-004226',
+    sourceAsset: {
+      id: 'Vendor-Update-Srv', ip: 'External', type: '3rd Party Server', department: 'Vendor', user: 'N/A', location: 'Cloud', zone: 'External', criticality: 'Low', os: 'Linux', firstSeen: 'N/A'
+    },
+    destinationAsset: {
+      id: 'EDU-PORTAL-01', ip: '172.16.0.20', type: 'Web Server', department: 'IT', location: 'Campus Data Center', zone: 'DMZ', criticality: 'High', service: 'HTTPS (443)', classification: 'Public', owner: 'University IT'
+    },
+    evidence: [
+      { label: 'Update', text: 'Software update downloaded with mismatched hash' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Update Hash', text: 'Matches vendor signature' }
+      ],
+      current: [
+        { label: 'Update Hash', text: 'Signature mismatch', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:10:00', event: 'Scheduled update initiated', status: 'normal' },
+      { time: '14:21:00', event: 'CURRENT STATE: Reconnaissance', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1195', desc: 'Supply Chain Compromise' }
+    ],
+    blastRadius: {
+      assets: 10, departments: 5, zones: 2, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'HTTPS',
+    },
+    recommendations: [
+      { text: 'Halt update installation process immediately', level: 'High' }
+    ]
+  },
+  {
+    id: 'FCST-0029',
+    detected: 'Sep 05, 14:20:00',
+    attackType: 'Web Exploitation',
+    sector: 'Transport',
+    currentStage: 'Initial Access',
+    predictedStage: 'Privilege Escalation',
+    targetAsset: 'APP-SRV-09',
+    probability: 55.6,
+    risk: 'Low',
+    timeWindow: '30 - 60 min',
+    status: 'Active',
+    eventId: 'EVT-004227',
+    sourceAsset: {
+      id: 'Unknown-IP', ip: '203.0.113.45', type: 'External Network', department: 'N/A', user: 'N/A', location: 'Unknown', zone: 'External', criticality: 'Low', os: 'Unknown', firstSeen: 'Sep 05, 2026'
+    },
+    destinationAsset: {
+      id: 'APP-SRV-09', ip: '10.20.1.15', type: 'Application Server', department: 'Logistics', location: 'Data Center C', zone: 'DMZ', criticality: 'High', service: 'HTTPS (443)', classification: 'Confidential', owner: 'Transport Auth'
+    },
+    evidence: [
+      { label: 'Web', text: 'SQL Injection patterns detected in HTTP requests' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Requests', text: 'Standard API calls' }
+      ],
+      current: [
+        { label: 'Requests', text: 'Malformed SQL queries in payload', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:15:00', event: 'Vulnerability scan detected', status: 'info' },
+      { time: '14:20:00', event: 'CURRENT STATE: Initial Access', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1190', desc: 'Exploit Public-Facing Application' }
+    ],
+    blastRadius: {
+      assets: 3, departments: 1, zones: 1, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'HTTPS',
+      'Destination Port': '443',
+    },
+    recommendations: [
+      { text: 'Update WAF rules to block source IP', level: 'Medium' }
+    ]
+  },
+  {
+    id: 'FCST-0030',
+    detected: 'Sep 05, 14:18:00',
+    attackType: 'Brute Force',
+    sector: 'Others',
+    currentStage: 'Reconnaissance',
+    predictedStage: 'Credential Access',
+    targetAsset: 'MAIL-SRV-02',
+    probability: 52.1,
+    risk: 'Low',
+    timeWindow: '40 - 70 min',
+    status: 'Investigating',
+    eventId: 'EVT-004228',
+    sourceAsset: {
+      id: 'Tor-Node', ip: '198.51.100.12', type: 'External Network', department: 'N/A', user: 'N/A', location: 'Unknown', zone: 'External', criticality: 'Low', os: 'Unknown', firstSeen: 'Sep 05, 2026'
+    },
+    destinationAsset: {
+      id: 'MAIL-SRV-02', ip: '10.5.1.10', type: 'Mail Server', department: 'IT', location: 'HQ Data Center', zone: 'DMZ', criticality: 'High', service: 'IMAP (143)', classification: 'Confidential', owner: 'IT'
+    },
+    evidence: [
+      { label: 'Auth', text: 'Continuous failed login attempts across multiple accounts' }
+    ],
+    behaviorDeviation: {
+      normal: [
+        { label: 'Failed Logins', text: '< 5 per hour' }
+      ],
+      current: [
+        { label: 'Failed Logins', text: '200 per minute', alert: true }
+      ]
+    },
+    timeline: [
+      { time: '14:10:00', event: 'First failed login detected', status: 'info' },
+      { time: '14:18:00', event: 'CURRENT STATE: Reconnaissance', status: 'current' }
+    ],
+    mitre: [
+      { id: 'T1110', desc: 'Brute Force' }
+    ],
+    blastRadius: {
+      assets: 1, departments: 0, zones: 1, criticalServices: 1
+    },
+    networkEvidence: {
+      'Protocol': 'IMAP',
+      'Destination Port': '143',
+    },
+    recommendations: [
+      { text: 'Enforce account lockout policies and block source IP', level: 'Medium' }
+    ]
   }
 ];
 

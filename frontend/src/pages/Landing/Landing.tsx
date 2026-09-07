@@ -1,8 +1,10 @@
 import { Play, ChevronRight, Activity, Target, Shield, Globe2, ArrowRight, CheckCircle2, ChevronLeft, MapPin } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-[#020813] text-white overflow-x-hidden font-sans">
       
@@ -14,7 +16,7 @@ export default function Landing() {
       <main className="relative z-10 flex-grow pt-24">
         
         {/* HERO SECTION */}
-        <section className="relative px-6 lg:px-12 max-w-[1440px] mx-auto min-h-[85vh] flex items-center overflow-hidden rounded-3xl mt-4 border border-white/10 shadow-[0_0_50px_rgba(0,163,255,0.1)]">
+        <section id="home" className="relative px-6 lg:px-12 max-w-[1440px] mx-auto min-h-[85vh] flex items-center overflow-hidden rounded-3xl mt-4 border border-white/10 shadow-[0_0_50px_rgba(0,163,255,0.1)]">
           <div className="absolute inset-0 bg-[url('/images/media_1788617943338.jpg')] bg-cover bg-center opacity-60 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/80 to-transparent" />
           
@@ -41,7 +43,9 @@ export default function Landing() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-5 mb-16">
-                <button className="bg-ntro-blue hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-md flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(0,163,255,0.4)] hover:shadow-[0_0_30px_rgba(0,163,255,0.6)]">
+                <button 
+                  onClick={() => navigate('/command-center')}
+                  className="bg-ntro-blue hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-md flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(0,163,255,0.4)] hover:shadow-[0_0_30px_rgba(0,163,255,0.6)]">
                   Enter Command Center <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="bg-transparent border border-ntro-blue/40 hover:bg-ntro-blue/10 text-white font-medium px-6 py-3 rounded-md flex items-center justify-center gap-2 transition-all">
@@ -78,7 +82,7 @@ export default function Landing() {
         </section>
 
         {/* CAPABILITIES SECTION */}
-        <section className="py-20 relative mt-10">
+        <section id="features" className="py-20 relative mt-10">
           <div className="absolute inset-0 bg-[url('/images/media_1788617444397.jpg')] bg-cover bg-top opacity-30 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020813] via-transparent to-[#020813]" />
           <div className="max-w-[1440px] mx-auto px-6 text-center relative z-10">
@@ -112,7 +116,7 @@ export default function Landing() {
         </section>
 
         {/* PLATFORM VIEW SECTION */}
-        <section className="py-20 relative">
+        <section id="dashboard" className="py-20 relative">
           <div className="absolute inset-0 bg-[url('/images/media_1788617813299.jpg')] bg-cover bg-center opacity-40 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#020813] via-[#020813]/60 to-[#020813]" />
           
@@ -141,7 +145,7 @@ export default function Landing() {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="py-24 relative overflow-hidden">
+        <section id="sectors" className="py-24 relative overflow-hidden">
            <div className="absolute inset-0 bg-[url('/images/media_1788617643683.jpg')] bg-cover bg-center opacity-30 mix-blend-screen" />
            <div className="max-w-[1440px] mx-auto px-6 text-center relative z-10">
              <div className="inline-block px-4 py-1 border border-ntro-blue/30 rounded-full text-ntro-blue text-[10px] font-mono uppercase tracking-[0.2em] mb-6 bg-navy/80 backdrop-blur">How It Works</div>
@@ -171,7 +175,7 @@ export default function Landing() {
         </section>
 
         {/* THREAT INTEL SECTION WITH GIANT SHIELD */}
-        <section className="py-24 relative overflow-hidden">
+        <section id="about" className="py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/images/media_1788618099775.jpg')] bg-cover bg-center opacity-40 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/60 to-[#020813]" />
           
@@ -213,7 +217,7 @@ export default function Landing() {
 
       </main>
       
-      <Footer />
+      <div id="contact"><Footer /></div>
     </div>
   );
 }
