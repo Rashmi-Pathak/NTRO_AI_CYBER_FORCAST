@@ -18,7 +18,7 @@
 
 ## 🛡️ Overview
 
-**NTRO AI CYBER FORECAST** is an advanced, military-grade cybersecurity dashboard built for the Smart India Hackathon. It leverages artificial intelligence to predict, analyze, and prevent cyber threats across critical government infrastructure. 
+***NTRO AI CYBER FORECAST*** is an advanced, military-grade cybersecurity dashboard built for the Smart India Hackathon. It leverages artificial intelligence to predict, analyze, and prevent cyber threats across critical government infrastructure. 
 
 The platform transitions SOC analysts from reactive incident response to **proactive threat hunting**, predicting the next stages of an attack (e.g., Lateral Movement, Data Exfiltration) before they happen.
 
