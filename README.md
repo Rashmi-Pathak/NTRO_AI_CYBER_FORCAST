@@ -68,7 +68,7 @@ The platform transitions SOC analysts from reactive incident response to **proac
 4. **Open your browser:**  
    Navigate to `http://localhost:3000` to view the application.
 
-## 🎨 UI/UX Philosophy
+## 🎨 UI/UX Philosophy-
 
 The interface is designed specifically for high-stress Security Operations Centers (SOCs). 
 - **Dark Theme Default**: Deep navy `#020813` reduces eye strain during long shifts.
