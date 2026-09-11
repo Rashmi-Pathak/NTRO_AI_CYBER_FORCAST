@@ -23,7 +23,7 @@
 The platform transitions SOC analysts from reactive incident response to **proactive threat hunting**, predicting the next stages of an attack (e.g., Lateral Movement, Data Exfiltration) before they happen.
 
 <div align="center">
-  <i>"A Safer, More Resilient India. Predict | Prevent | Protect"</i>
+  <i>"A safer more resilient india | Predict | Prevent | Protect"</i>
 </div>
 
 ## ✨ Key Features
