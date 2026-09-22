@@ -68,10 +68,10 @@ export default function CommandCenter() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-4 gap-4">
-        <KpiCard title="Active Threats" value="1,248" trend="12%" trendUp={false} color="#ff3b30" icon={Activity} />
-        <KpiCard title="Monitored Assets" value="3,890" trend="5%" trendUp={true} color="#00a3ff" icon={Globe} />
-        <KpiCard title="Critical Alerts" value="87" trend="34%" trendUp={false} color="#ff9500" icon={AlertTriangle} />
-        <KpiCard title="Systems Online" value="99.7%" trend="0.2%" trendUp={true} color="#34c759" icon={ShieldCheck} />
+        <KpiCard title="Active Threats" value="1,248" trend="12%" trendUp={false} color="#f23b4d" icon={Activity} />
+        <KpiCard title="Monitored Assets" value="3,890" trend="5%" trendUp={true} color="#1683e8" icon={Globe} />
+        <KpiCard title="Critical Alerts" value="87" trend="34%" trendUp={false} color="#f59e0b" icon={AlertTriangle} />
+        <KpiCard title="Systems Online" value="99.7%" trend="0.2%" trendUp={true} color="#16b86a" icon={ShieldCheck} />
       </div>
 
       {/* Main Dashboard Grid */}
@@ -148,19 +148,19 @@ export default function CommandCenter() {
               <AreaChart data={mockTrendData}>
                 <defs>
                   <linearGradient id="colorNet" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#00a3ff" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#00a3ff" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#087cf0" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#087cf0" stopOpacity={0}/>
                   </linearGradient>
                   <linearGradient id="colorPhish" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#34c759" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#34c759" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#16b86a" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#16b86a" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="name" tick={{fill: '#6b7280', fontSize: 10}} stroke="#374151" tickLine={false} axisLine={false} />
                 <YAxis tick={{fill: '#6b7280', fontSize: 10}} stroke="#374151" tickLine={false} axisLine={false} />
-                <Tooltip contentStyle={{backgroundColor: '#0f172a', border: '1px solid #1e293b'}} />
-                <Area type="monotone" dataKey="network" stroke="#00a3ff" fillOpacity={1} fill="url(#colorNet)" />
-                <Area type="monotone" dataKey="phishing" stroke="#34c759" fillOpacity={1} fill="url(#colorPhish)" />
+                <Tooltip contentStyle={{backgroundColor: '#f7fbfe', border: '1px solid #c9d8ee', color: '#0b1b46'}} />
+                <Area type="monotone" dataKey="network" stroke="#087cf0" fillOpacity={1} fill="url(#colorNet)" />
+                <Area type="monotone" dataKey="phishing" stroke="#16b86a" fillOpacity={1} fill="url(#colorPhish)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>

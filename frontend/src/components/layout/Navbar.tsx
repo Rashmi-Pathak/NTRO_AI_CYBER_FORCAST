@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
   const navigate = useNavigate();
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#020813]/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#020813]/90 backdrop-blur-md border-b border-white/5">
       <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img src="/images/media_1788614184995.png" alt="NTRO Logo" className="h-10 object-contain" />

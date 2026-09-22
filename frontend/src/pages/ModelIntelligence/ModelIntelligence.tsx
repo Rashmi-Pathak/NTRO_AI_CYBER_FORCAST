@@ -169,7 +169,7 @@ export default function ModelIntelligence() {
                {l: 'Deployment', ic: Network, c: 'bg-ntro-green/20 text-ntro-green border border-ntro-green shadow-[0_0_10px_#34c759]'},
                {l: 'Monitoring', ic: Activity, c: 'bg-ntro-amber/20 text-ntro-amber border border-ntro-amber'},
              ].map((w, i) => (
-               <div key={i} className="flex flex-col items-center gap-2 z-10 bg-[#0a1526] p-1">
+               <div key={i} className="flex flex-col items-center gap-2 z-10 bg-navy-lighter p-1">
                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${w.c}`}><w.ic className="w-4 h-4"/></div>
                  <div className="text-[9px] text-gray-300 font-medium">{w.l}</div>
                </div>

@@ -139,7 +139,7 @@ export default function ThreatInvestigation() {
            <div className="glass-panel p-4 flex-1 flex flex-col overflow-y-auto scrollbar-hide">
              <h3 className="text-sm font-semibold text-white mb-3">Behaviour Deviation</h3>
              <div className="flex gap-4 flex-1 text-xs">
-                <div className="flex-1 bg-[#051124] rounded border border-ntro-green/20 p-3">
+                <div className="flex-1 bg-navy-light rounded border border-ntro-green/20 p-3">
                   <div className="text-ntro-green font-medium mb-3">Normal Behaviour</div>
                   <ul className="space-y-3 text-gray-400">
                     {forecast.behaviorDeviation.normal.map((b, i) => (
@@ -147,7 +147,7 @@ export default function ThreatInvestigation() {
                     ))}
                   </ul>
                 </div>
-                <div className="flex-1 bg-[#051124] rounded border border-ntro-red/20 p-3">
+                <div className="flex-1 bg-navy-light rounded border border-ntro-red/20 p-3">
                   <div className="text-ntro-red font-medium mb-3">Current Behaviour</div>
                   <ul className="space-y-3 text-gray-300">
                     {forecast.behaviorDeviation.current.map((b, i) => (

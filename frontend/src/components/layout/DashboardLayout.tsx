@@ -26,10 +26,10 @@ export default function DashboardLayout() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#020813] text-white flex overflow-hidden font-sans">
+    <div className="min-h-screen bg-content text-navy-text flex overflow-hidden font-sans">
       
       {/* Sidebar */}
-      <aside className="w-64 border-r border-ntro-blue/20 bg-navy-lighter/30 flex flex-col relative z-20 shrink-0">
+      <aside className="w-64 border-r border-border-soft bg-sidebar flex flex-col relative z-20 shrink-0">
         <div className="h-20 flex items-center px-6 border-b border-ntro-blue/10 shrink-0">
           <img src="/images/media_1788614184995.png" alt="NTRO Logo" className="h-10 object-contain" />
         </div>
@@ -43,7 +43,7 @@ export default function DashboardLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all ${
                     isActive 
-                      ? 'bg-ntro-blue/20 text-white border-l-2 border-ntro-blue font-medium shadow-[inset_0_0_15px_rgba(0,163,255,0.15)]' 
+                      ? 'bg-ntro-blue/15 text-white border-l-2 border-ntro-blue font-medium shadow-[inset_0_0_15px_rgba(8,124,240,0.12)]' 
                       : 'text-gray-400 hover:text-white hover:bg-white/5 border-l-2 border-transparent'
                   }`
                 }
@@ -69,10 +69,10 @@ export default function DashboardLayout() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col relative min-w-0">
         {/* Background glow effects */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-ntro-blue/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-ntro-blue/5 rounded-full blur-[100px] pointer-events-none" />
         
         {/* Topbar */}
-        <header className="h-20 border-b border-ntro-blue/10 bg-navy-lighter/30 flex items-center justify-between px-6 shrink-0 relative z-10">
+        <header className="h-20 border-b border-border-soft bg-card/75 flex items-center justify-between px-6 shrink-0 relative z-10">
           <div className="relative w-96">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input 
@@ -88,7 +88,7 @@ export default function DashboardLayout() {
           <div className="flex items-center gap-6">
             <button className="relative p-2 text-gray-400 hover:text-white transition-colors">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-ntro-red rounded-full shadow-[0_0_5px_#ff3b30]" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-ntro-red rounded-full shadow-[0_0_5px_#f23b4d]" />
             </button>
             
             <div className="flex items-center gap-3 pl-6 border-l border-white/10">

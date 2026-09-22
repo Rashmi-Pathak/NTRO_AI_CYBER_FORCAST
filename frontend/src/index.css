@@ -3,22 +3,71 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   body {
-    @apply bg-navy text-gray-100 font-sans;
+    @apply text-navy-text font-sans antialiased;
+    background-color: #f0f7fe;
+    background-image: radial-gradient(circle at 82% 0%, rgba(142, 197, 248, 0.2), transparent 34rem);
+  }
+
+  ::selection {
+    background: rgba(8, 124, 240, 0.22);
+    color: #102a56;
   }
 }
 
 @layer utilities {
+  .text-white {
+    color: #0b1b46;
+  }
+
+  .text-gray-100,
+  .text-gray-200,
+  .text-gray-300 {
+    color: #173568;
+  }
+
+  .text-gray-400 {
+    color: #49658e;
+  }
+
+  .text-gray-500,
+  .text-gray-600 {
+    color: #6882a6;
+  }
+
   .glass-panel {
-    @apply bg-navy-lighter/40 backdrop-blur-md border border-ntro-blue/20 rounded-xl shadow-lg;
+    @apply bg-card/90 backdrop-blur-md border border-border-soft rounded-xl shadow-lg;
   }
   .glow-text {
-    text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+    text-shadow: 0 0 10px rgba(8, 124, 240, 0.2);
   }
   .btn-primary {
-    @apply px-6 py-2 bg-ntro-blue hover:bg-blue-500 text-white font-medium rounded-md transition-all duration-300 shadow-[0_0_15px_rgba(0,163,255,0.4)] hover:shadow-[0_0_25px_rgba(0,163,255,0.6)];
+    @apply px-6 py-2 bg-ntro-blue hover:bg-blue-600 text-white font-medium rounded-md transition-all duration-300 shadow-[0_0_15px_rgba(8,124,240,0.18)] hover:shadow-[0_0_25px_rgba(8,124,240,0.28)];
   }
   .btn-outline {
-    @apply px-6 py-2 bg-transparent border border-ntro-blue/50 hover:bg-ntro-blue/10 text-white font-medium rounded-md transition-all duration-300;
+    @apply px-6 py-2 bg-transparent border border-ntro-blue/40 hover:bg-ntro-blue/10 text-slate-800 font-medium rounded-md transition-all duration-300;
+  }
+
+  .landing-page .text-white {
+    color: #ffffff;
+  }
+
+  .landing-page .text-gray-100,
+  .landing-page .text-gray-200,
+  .landing-page .text-gray-300 {
+    color: #e2e8f0;
+  }
+
+  .landing-page .text-gray-400 {
+    color: #94a3b8;
+  }
+
+  .landing-page .text-gray-500,
+  .landing-page .text-gray-600 {
+    color: #64748b;
   }
 }

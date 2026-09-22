@@ -6,17 +6,14 @@ import { useNavigate } from 'react-router-dom';
 export default function Landing() {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-[#020813] text-white overflow-x-hidden font-sans">
-      
-      {/* GLOBAL BACKGROUND ELEMENTS */}
-      <div className="fixed inset-0 z-0 opacity-20 pointer-events-none bg-[url('/images/media_1788618016749.png')] bg-cover bg-center mix-blend-screen" />
+    <div className="landing-page min-h-screen bg-[#c9def5] text-gray-100 overflow-x-hidden font-sans">
       
       <Navbar />
 
       <main className="relative z-10 flex-grow pt-24">
         
         {/* HERO SECTION */}
-        <section id="home" className="relative px-6 lg:px-12 max-w-[1440px] mx-auto min-h-[85vh] flex items-center overflow-hidden rounded-3xl mt-4 border border-white/10 shadow-[0_0_50px_rgba(0,163,255,0.1)]">
+        <section id="home" className="relative px-6 lg:px-12 max-w-[1440px] mx-auto min-h-[85vh] flex items-center overflow-hidden rounded-3xl mt-4 border border-white/10 shadow-[0_0_50px_rgba(121,183,194,0.08)]">
           <div className="absolute inset-0 bg-[url('/images/media_1788617943338.jpg')] bg-cover bg-center opacity-60 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/80 to-transparent" />
           
@@ -83,8 +80,6 @@ export default function Landing() {
 
         {/* CAPABILITIES SECTION */}
         <section id="features" className="py-20 relative mt-10">
-          <div className="absolute inset-0 bg-[url('/images/media_1788617444397.jpg')] bg-cover bg-top opacity-30 mix-blend-screen" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020813] via-transparent to-[#020813]" />
           <div className="max-w-[1440px] mx-auto px-6 text-center relative z-10">
             <div className="inline-block px-4 py-1 border border-ntro-blue/30 rounded-full text-ntro-blue text-[10px] font-mono uppercase tracking-[0.2em] mb-6 bg-ntro-blue/5 backdrop-blur">Our Capabilities</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-md">Intelligence at Every Layer</h2>
@@ -117,9 +112,6 @@ export default function Landing() {
 
         {/* PLATFORM VIEW SECTION */}
         <section id="dashboard" className="py-20 relative">
-          <div className="absolute inset-0 bg-[url('/images/media_1788617813299.jpg')] bg-cover bg-center opacity-40 mix-blend-screen" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020813] via-[#020813]/60 to-[#020813]" />
-          
           <div className="max-w-[1440px] mx-auto px-6 text-center relative z-10">
             <div className="inline-block px-4 py-1 border border-ntro-blue/30 rounded-full text-ntro-blue text-[10px] font-mono uppercase tracking-[0.2em] mb-6 bg-navy/80 backdrop-blur">Experience the Platform</div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-md">A Unified View of National Cyber Threats</h2>
@@ -146,7 +138,6 @@ export default function Landing() {
 
         {/* HOW IT WORKS */}
         <section id="sectors" className="py-24 relative overflow-hidden">
-           <div className="absolute inset-0 bg-[url('/images/media_1788617643683.jpg')] bg-cover bg-center opacity-30 mix-blend-screen" />
            <div className="max-w-[1440px] mx-auto px-6 text-center relative z-10">
              <div className="inline-block px-4 py-1 border border-ntro-blue/30 rounded-full text-ntro-blue text-[10px] font-mono uppercase tracking-[0.2em] mb-6 bg-navy/80 backdrop-blur">How It Works</div>
              <h2 className="text-3xl font-bold mb-4 drop-shadow-md">From Data to a Safer Nation</h2>
@@ -162,7 +153,7 @@ export default function Landing() {
                   { num: '04', title: 'Act', desc: 'Enable faster, smarter response and mitigation.' }
                 ].map((step, i) => (
                   <div key={i} className="relative flex flex-col items-center w-48 z-10">
-                    <div className="w-16 h-16 rounded-full bg-[#051124] border border-ntro-blue/40 flex items-center justify-center shadow-[0_0_20px_rgba(0,163,255,0.2)] mb-6 text-ntro-blue relative">
+                     <div className="w-16 h-16 rounded-full bg-[#051124] border border-ntro-blue/40 flex items-center justify-center shadow-[0_0_20px_rgba(0,163,255,0.2)] mb-6 text-ntro-blue relative">
                       <div className="absolute -top-3 -right-3 text-[10px] font-mono text-gray-500">{step.num}</div>
                       <Target className="w-6 h-6" />
                     </div>
@@ -176,14 +167,11 @@ export default function Landing() {
 
         {/* THREAT INTEL SECTION WITH GIANT SHIELD */}
         <section id="about" className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/media_1788618099775.jpg')] bg-cover bg-center opacity-40 mix-blend-screen" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020813] via-[#020813]/60 to-[#020813]" />
-          
           <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
              
              {/* Left - Globe (kept smaller or replaced by the shield background conceptually, but we can put text here) */}
              <div className="relative h-[400px] flex items-center justify-center">
-               <div className="absolute left-0 bottom-[20%] text-left z-20 bg-navy/50 p-6 rounded-2xl backdrop-blur border border-ntro-blue/20">
+               <div className="absolute left-0 bottom-[20%] text-left z-20 bg-[#040d21]/70 p-6 rounded-2xl backdrop-blur border border-ntro-blue/20">
                  <div className="text-ntro-blue font-bold text-2xl leading-tight uppercase tracking-widest drop-shadow-[0_0_10px_#00a3ff]">
                    THREAT<br/>INTELLIGENCE<br/>FOR A BETTER<br/>TOMORROW
                  </div>
@@ -191,7 +179,7 @@ export default function Landing() {
              </div>
 
              {/* Right - Content */}
-             <div className="bg-navy/50 p-8 rounded-2xl backdrop-blur border border-white/10">
+             <div className="bg-[#040d21]/70 p-8 rounded-2xl backdrop-blur border border-white/10">
                <div className="inline-block px-4 py-1 border border-ntro-blue/30 rounded-full text-ntro-blue text-[10px] font-mono uppercase tracking-[0.2em] mb-6 bg-navy/80">Why NTRO</div>
                <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-md text-white">More Than a Platform,<br/>A Safer Tomorrow</h2>
                <p className="text-gray-400 mb-10 text-sm">Combining AI, human expertise, and real-time intelligence to protect critical infrastructure and empower a resilient India.</p>

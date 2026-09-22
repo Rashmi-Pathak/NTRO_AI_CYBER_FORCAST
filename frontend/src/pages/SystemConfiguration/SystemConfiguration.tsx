@@ -1,4 +1,4 @@
-import { Settings, Heart, Link, Database, Cpu, HardDrive, Clock, Search, ChevronRight } from 'lucide-react';
+import { Settings, Heart, Link, Database, Cpu, HardDrive, Clock, Search, ChevronRight, ShieldAlert, Activity } from 'lucide-react';
 
 export default function SystemConfiguration() {
   return (
@@ -87,7 +87,7 @@ export default function SystemConfiguration() {
               </svg>
 
               {/* Center Core (NTRO) */}
-              <div className="w-56 h-32 bg-[#020813] border-2 border-ntro-blue rounded-xl flex flex-col items-center justify-center relative z-10 shadow-[0_0_40px_rgba(0,163,255,0.2)]">
+              <div className="w-56 h-32 bg-navy border-2 border-ntro-blue rounded-xl flex flex-col items-center justify-center relative z-10 shadow-[0_0_40px_rgba(121,183,194,0.12)]">
                 <div className="absolute inset-0 bg-ntro-blue/5 rounded-xl animate-pulse" />
                 <h2 className="text-xl font-bold text-white tracking-widest mb-1 relative z-10">NTRO</h2>
                 <div className="text-xs text-ntro-blue font-mono tracking-widest relative z-10">AI CYBER FORECAST</div>

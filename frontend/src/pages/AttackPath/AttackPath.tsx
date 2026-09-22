@@ -138,7 +138,7 @@ export default function AttackPath() {
                  <PieChart>
                    <Pie data={[{value: 87}, {value: 13}]} innerRadius={35} outerRadius={45} dataKey="value" stroke="none">
                      <Cell fill="#ff3b30" />
-                     <Cell fill="#1a2c4d" />
+                     <Cell fill="#d7e8f7" />
                    </Pie>
                  </PieChart>
                </ResponsiveContainer>

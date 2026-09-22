@@ -7,16 +7,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        'navy': '#040d21',
-        'navy-light': '#0a1930',
-        'navy-lighter': '#112240',
-        'ntro-blue': '#00a3ff',
-        'ntro-red': '#ff3b30',
-        'ntro-amber': '#ff9500',
-        'ntro-green': '#34c759'
+        'navy': '#e9f3fe',
+        'navy-light': '#eef6fe',
+        'navy-lighter': '#f7fbfe',
+        'sidebar': '#e1edfc',
+        'page-bg': '#f0f7fe',
+        'card': '#f7fbfe',
+        'card-alt': '#eef6fe',
+        'border-soft': '#c9d8ee',
+        'navy-text': '#0b1b46',
+        'navy-secondary': '#173568',
+        'ntro-blue': '#087cf0',
+        'ntro-blue-soft': '#8ec5f8',
+        'ntro-blue-icon': '#dceeff',
+        'ntro-red': '#f23b4d',
+        'ntro-red-soft': '#fde5e9',
+        'ntro-amber': '#f59a13',
+        'ntro-amber-soft': '#fff1d6',
+        'ntro-green': '#16b86a',
+        'ntro-green-soft': '#e2f7ed'
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['Fira Code', 'monospace'],
       }
     },
