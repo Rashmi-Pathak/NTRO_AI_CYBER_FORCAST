@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { ShieldCheck, ShieldAlert, CheckCircle2, ChevronRight, MessageSquare, AlertTriangle, Activity, Lock, Users, FileText, Target } from 'lucide-react';
 import { ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { api } from '../../services/api';
 
 const mockTrendData = Array.from({length: 7}).map((_, i) => ({
   name: `Sep 0${i+1}`,
@@ -7,6 +9,48 @@ const mockTrendData = Array.from({length: 7}).map((_, i) => ({
 }));
 
 export default function IncidentManagement() {
+  const [incidents, setIncidents] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchIncidents();
+  }, []);
+
+  const fetchIncidents = () => {
+    api.getIncidents(1, 100).then((res) => {
+      setIncidents(res.data || []);
+      setLoading(false);
+    }).catch(err => {
+      console.error(err);
+      setLoading(false);
+    });
+  };
+
+  const handleStatusChange = (id: string, newStatus: string) => {
+    api.updateIncident(id, { status: newStatus }).then(() => {
+      fetchIncidents();
+    });
+  };
+
+  const getSeverity = (score: number) => {
+    if (score >= 80) return 'Critical';
+    if (score >= 60) return 'High';
+    if (score >= 40) return 'Medium';
+    return 'Low';
+  };
+
+  const activeCount = incidents.filter(i => i.status === 'OPEN').length;
+  const invCount = incidents.filter(i => i.status === 'INVESTIGATING').length;
+  const contCount = incidents.filter(i => i.status === 'CONTAINMENT').length;
+  const resCount = incidents.filter(i => i.status === 'RESOLVED').length;
+
+  const sevData = [
+    { name: 'Critical', v: incidents.filter(i => getSeverity(i.risk_score) === 'Critical').length, fill: '#ff3b30' },
+    { name: 'High', v: incidents.filter(i => getSeverity(i.risk_score) === 'High').length, fill: '#ff9500' },
+    { name: 'Medium', v: incidents.filter(i => getSeverity(i.risk_score) === 'Medium').length, fill: '#00a3ff' },
+    { name: 'Low', v: incidents.filter(i => getSeverity(i.risk_score) === 'Low').length, fill: '#34c759' }
+  ];
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-end">
@@ -30,11 +74,11 @@ export default function IncidentManagement() {
       {/* KPIs */}
       <div className="grid grid-cols-5 gap-4">
         {[
-          {t: 'Active Incidents', v: '42', tr: '12%', up: true, c: '#ff3b30', ic: ShieldAlert},
-          {t: 'Under Investigation', v: '18', tr: '', up: null, c: '#00a3ff', ic: ShieldCheck},
-          {t: 'Containment In Progress', v: '8', tr: '', up: null, c: '#ff9500', ic: Lock},
-          {t: 'Resolved (7 Days)', v: '27', tr: '35%', up: true, c: '#34c759', ic: CheckCircle2},
-          {t: 'Avg. Response Time', v: '2.4 hrs', tr: '18%', up: false, c: '#a855f7', ic: Activity},
+          {t: 'Active Incidents', v: activeCount.toString(), tr: '', up: true, c: '#ff3b30', ic: ShieldAlert},
+          {t: 'Under Investigation', v: invCount.toString(), tr: '', up: null, c: '#00a3ff', ic: ShieldCheck},
+          {t: 'Containment In Progress', v: contCount.toString(), tr: '', up: null, c: '#ff9500', ic: Lock},
+          {t: 'Resolved (7 Days)', v: resCount.toString(), tr: '', up: true, c: '#34c759', ic: CheckCircle2},
+          {t: 'Avg. Response Time', v: '2.4 hrs', tr: '', up: false, c: '#a855f7', ic: Activity},
         ].map((k, i) => (
           <div key={i} className="glass-panel p-4 flex gap-4 items-center border-t-2" style={{borderTopColor: k.c}}>
             <div className="p-3 rounded-lg" style={{ backgroundColor: `${k.c}15`, color: k.c }}>
@@ -42,18 +86,13 @@ export default function IncidentManagement() {
             </div>
             <div>
                <div className="text-[10px] text-gray-400 font-medium">{k.t}</div>
-               <div className="text-xl font-bold text-white tracking-tight">{k.v}</div>
-               {k.tr && (
-                 <div className={`text-[9px] font-mono mt-0.5 ${k.up ? (k.c==='#ff3b30'?'text-ntro-red':'text-ntro-green') : 'text-ntro-green'}`}>
-                   {k.up ? '↑ ' : '↓ '}{k.tr}
-                 </div>
-               )}
+               <div className="text-xl font-bold text-white tracking-tight">{loading ? '-' : k.v}</div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-12 gap-6 h-[400px]">
+      <div className="grid grid-cols-12 gap-6 min-h-[400px]">
         {/* Incident List */}
         <div className="col-span-7 glass-panel p-5 flex flex-col">
           <div className="flex justify-between items-center border-b border-white/10 pb-3 mb-3">
@@ -70,39 +109,36 @@ export default function IncidentManagement() {
           <div className="flex-1 overflow-y-auto scrollbar-hide">
             <table className="w-full text-xs text-left">
               <thead className="text-gray-500 font-mono sticky top-0 bg-navy/90 backdrop-blur pb-2">
-                <tr><th className="pb-2 font-normal">ID</th><th className="pb-2 font-normal">Title</th><th className="pb-2 font-normal">Severity</th><th className="pb-2 font-normal">Status</th><th className="pb-2 font-normal">Assigned To</th><th className="pb-2 font-normal text-right">Last Updated</th></tr>
+                <tr><th className="pb-2 font-normal">ID</th><th className="pb-2 font-normal">Title</th><th className="pb-2 font-normal">Severity</th><th className="pb-2 font-normal">Status</th><th className="pb-2 font-normal">Sector</th><th className="pb-2 font-normal text-right">Created At</th></tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {[
-                  {id: 'INC-2026-1042', t: 'Phishing campaign (Govt)', sev: 'High', st: 'Investigating', a: 'R. Sharma', time: '12 min ago'},
-                  {id: 'INC-2026-1041', t: 'Malware infection (Endpoint)', sev: 'Medium', st: 'Containment', a: 'A. Verma', time: '45 min ago'},
-                  {id: 'INC-2026-1039', t: 'Data exfiltration (Finance)', sev: 'Critical', st: 'Investigating', a: 'K. Mehta', time: '2 hours ago'},
-                  {id: 'INC-2026-1038', t: 'DDoS attack (Telecom)', sev: 'High', st: 'Mitigated', a: 'P. Iyer', time: '3 hours ago'},
-                  {id: 'INC-2026-1035', t: 'Unauthorized access (Power)', sev: 'Medium', st: 'Resolved', a: 'S. Nair', time: '5 hours ago'},
-                  {id: 'INC-2026-1031', t: 'Suspicious login activity', sev: 'Low', st: 'Monitoring', a: 'T. Khan', time: '6 hours ago'},
-                  {id: 'INC-2026-1028', t: 'Ransomware (Healthcare)', sev: 'Critical', st: 'Containment', a: 'M. Desai', time: '8 hours ago'},
-                  {id: 'INC-2026-1024', t: 'Insider threat (Govt)', sev: 'High', st: 'Resolved', a: 'A. Rao', time: '1 day ago'},
-                ].map((r, i) => (
+                {incidents.map((r, i) => {
+                  const sev = getSeverity(r.risk_score);
+                  return (
                   <tr key={i} className="hover:bg-white/5 cursor-pointer">
-                     <td className="py-2.5 font-mono text-gray-400">{r.id}</td>
-                     <td className="py-2.5 font-medium text-gray-200">{r.t}</td>
-                     <td className="py-2.5"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${r.sev==='Critical'||r.sev==='High'?'text-ntro-red border-ntro-red bg-ntro-red/10': r.sev==='Medium'?'text-ntro-amber border-ntro-amber bg-ntro-amber/10':'text-ntro-green border-ntro-green bg-ntro-green/10'}`}>{r.sev}</span></td>
-                     <td className="py-2.5"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${r.st==='Resolved'?'text-ntro-green border-ntro-green bg-ntro-green/10': r.st==='Investigating'?'text-ntro-blue border-ntro-blue bg-ntro-blue/10': 'text-ntro-amber border-ntro-amber bg-ntro-amber/10'}`}>{r.st}</span></td>
-                     <td className="py-2.5 text-gray-400">{r.a}</td>
-                     <td className="py-2.5 text-right font-mono text-gray-500">{r.time}</td>
+                     <td className="py-2.5 font-mono text-gray-400">{r.incident_id.split('-').slice(0,2).join('-')}</td>
+                     <td className="py-2.5 font-medium text-gray-200">{r.title}</td>
+                     <td className="py-2.5"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${sev==='Critical'||sev==='High'?'text-ntro-red border-ntro-red bg-ntro-red/10': sev==='Medium'?'text-ntro-amber border-ntro-amber bg-ntro-amber/10':'text-ntro-green border-ntro-green bg-ntro-green/10'}`}>{sev}</span></td>
+                     <td className="py-2.5">
+                       <select 
+                         value={r.status}
+                         onChange={(e) => handleStatusChange(r.incident_id, e.target.value)}
+                         className={`px-1 py-0.5 rounded border text-[10px] outline-none ${r.status==='RESOLVED'?'text-ntro-green border-ntro-green bg-ntro-green/10': r.status==='INVESTIGATING'?'text-ntro-blue border-ntro-blue bg-ntro-blue/10': 'text-ntro-amber border-ntro-amber bg-ntro-amber/10'}`}
+                       >
+                         <option value="OPEN">OPEN</option>
+                         <option value="INVESTIGATING">INVESTIGATING</option>
+                         <option value="CONTAINMENT">CONTAINMENT</option>
+                         <option value="ERADICATION">ERADICATION</option>
+                         <option value="RECOVERY">RECOVERY</option>
+                         <option value="RESOLVED">RESOLVED</option>
+                       </select>
+                     </td>
+                     <td className="py-2.5 text-gray-400">{r.sector}</td>
+                     <td className="py-2.5 text-right font-mono text-gray-500">{new Date(r.created_at).toLocaleDateString()}</td>
                   </tr>
-                ))}
+                )})}
               </tbody>
             </table>
-          </div>
-          <div className="flex justify-center items-center gap-1 mt-2 text-xs text-gray-400">
-             <button className="px-2 py-1 hover:text-white">&lt;</button>
-             <button className="px-2 py-1 bg-ntro-blue text-white rounded">1</button>
-             <button className="px-2 py-1 hover:text-white">2</button>
-             <button className="px-2 py-1 hover:text-white">3</button>
-             <button className="px-2 py-1 hover:text-white">4</button>
-             <button className="px-2 py-1 hover:text-white">5</button>
-             <button className="px-2 py-1 hover:text-white">&gt;</button>
           </div>
         </div>
 
@@ -131,29 +167,27 @@ export default function IncidentManagement() {
            <div className="flex gap-6 h-full">
              {/* Severity Donut */}
              <div className="glass-panel p-5 flex-1 flex flex-col">
-               <h3 className="text-sm font-semibold text-white mb-2">Incident Severity Distribution</h3>
+               <h3 className="text-sm font-semibold text-white mb-2">Severity Distribution</h3>
                <div className="flex items-center justify-between flex-1">
                  <div className="w-24 h-24 relative">
                    <ResponsiveContainer width="100%" height="100%">
                      <PieChart>
-                       <Pie data={[{v:14},{v:38},{v:31},{v:17}]} innerRadius={30} outerRadius={45} dataKey="v" stroke="none">
-                         <Cell fill="#ff3b30"/>
-                         <Cell fill="#ff9500"/>
-                         <Cell fill="#00a3ff"/>
-                         <Cell fill="#34c759"/>
+                       <Pie data={sevData.filter(d => d.v > 0)} innerRadius={30} outerRadius={45} dataKey="v" stroke="none">
+                         {sevData.filter(d => d.v > 0).map((entry, index) => (
+                           <Cell key={`cell-${index}`} fill={entry.fill} />
+                         ))}
                        </Pie>
                      </PieChart>
                    </ResponsiveContainer>
                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                     <div className="text-lg font-bold text-white">42</div>
-                     <div className="text-[8px] text-gray-400 text-center leading-tight">Total<br/>Incidents</div>
+                     <div className="text-lg font-bold text-white">{incidents.length}</div>
+                     <div className="text-[8px] text-gray-400 text-center leading-tight">Total</div>
                    </div>
                  </div>
                  <div className="flex flex-col gap-1.5 text-[10px]">
-                   <div className="flex items-center gap-4 justify-between"><div className="flex items-center gap-1.5"><span className="w-2 h-2 bg-ntro-red rounded-full"></span><span className="text-gray-300">Critical</span></div> <span className="font-mono text-gray-400">14%</span></div>
-                   <div className="flex items-center gap-4 justify-between"><div className="flex items-center gap-1.5"><span className="w-2 h-2 bg-ntro-amber rounded-full"></span><span className="text-gray-300">High</span></div> <span className="font-mono text-gray-400">38%</span></div>
-                   <div className="flex items-center gap-4 justify-between"><div className="flex items-center gap-1.5"><span className="w-2 h-2 bg-ntro-blue rounded-full"></span><span className="text-gray-300">Medium</span></div> <span className="font-mono text-gray-400">31%</span></div>
-                   <div className="flex items-center gap-4 justify-between"><div className="flex items-center gap-1.5"><span className="w-2 h-2 bg-ntro-green rounded-full"></span><span className="text-gray-300">Low</span></div> <span className="font-mono text-gray-400">17%</span></div>
+                   {sevData.map((d, i) => (
+                     <div key={i} className="flex items-center gap-4 justify-between"><div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{backgroundColor: d.fill}}></span><span className="text-gray-300">{d.name}</span></div> <span className="font-mono text-gray-400">{incidents.length > 0 ? Math.round((d.v/incidents.length)*100) : 0}%</span></div>
+                   ))}
                  </div>
                </div>
              </div>
@@ -177,21 +211,19 @@ export default function IncidentManagement() {
         </div>
       </div>
 
-      <div className="grid grid-cols-12 gap-6 h-[180px]">
+      <div className="grid grid-cols-12 gap-6 min-h-[180px]">
         {/* Recent Activity */}
         <div className="col-span-4 glass-panel p-5 flex flex-col">
           <h3 className="text-sm font-semibold text-white mb-3">Recent Activity</h3>
           <div className="flex-1 overflow-y-auto space-y-3 scrollbar-hide">
-            {[
-              {ic: AlertTriangle, c: 'text-ntro-red bg-ntro-red/10', t: 'Incident INC-2026-1039 escalated to Critical', time: '8 min ago'},
-              {ic: FileText, c: 'text-ntro-blue bg-ntro-blue/10', t: 'Forensic analysis report uploaded (INC-2026-1038)', time: '32 min ago'},
-              {ic: MessageSquare, c: 'text-gray-400 bg-white/10', t: 'New comment added by R. Sharma (INC-2026-1042)', time: '1 hour ago'},
-            ].map((a, i) => (
+            {incidents.slice(0, 3).map((a, i) => (
               <div key={i} className="flex gap-3 border-b border-white/5 pb-2 last:border-0 items-start">
-                <div className={`p-1.5 rounded-full ${a.c}`}><a.ic className="w-3 h-3" /></div>
+                <div className={`p-1.5 rounded-full ${i===0 ? 'text-ntro-red bg-ntro-red/10' : i===1 ? 'text-ntro-blue bg-ntro-blue/10' : 'text-gray-400 bg-white/10'}`}>
+                  {i === 0 ? <AlertTriangle className="w-3 h-3" /> : i === 1 ? <FileText className="w-3 h-3" /> : <MessageSquare className="w-3 h-3" />}
+                </div>
                 <div>
-                  <div className="text-xs text-gray-300">{a.t}</div>
-                  <div className="text-[9px] text-gray-500 font-mono mt-0.5">{a.time}</div>
+                  <div className="text-xs text-gray-300">Incident {a.incident_id.split('-')[0]} updated to {a.status}</div>
+                  <div className="text-[9px] text-gray-500 font-mono mt-0.5">{new Date(a.created_at).toLocaleString()}</div>
                 </div>
               </div>
             ))}
@@ -236,3 +268,4 @@ export default function IncidentManagement() {
     </div>
   );
 }
+

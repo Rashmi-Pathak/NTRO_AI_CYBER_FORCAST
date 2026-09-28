@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Cpu, Target, ShieldAlert, CheckCircle2, ChevronRight, Activity, Database, Network, AlertTriangle } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { api } from '../../services/api';
 
 const mockTrends = Array.from({length: 8}).map((_, i) => ({
   name: `Aug ${27 + i}`,
@@ -10,6 +12,25 @@ const mockTrends = Array.from({length: 8}).map((_, i) => ({
 }));
 
 export default function ModelIntelligence() {
+  const [models, setModels] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.getModels().then((res) => {
+      setModels(res.data || []);
+      setLoading(false);
+    }).catch((err) => {
+      console.error(err);
+      setLoading(false);
+    });
+  }, []);
+
+  const totalModels = models.length;
+  const activeModels = models.filter(m => m.status === 'ACTIVE' || m.status === 'Active').length;
+  const avgAcc = totalModels > 0 ? (models.reduce((sum, m) => sum + parseFloat(m.accuracy || '0'), 0) / totalModels).toFixed(1) : '0';
+  const driftModels = models.filter(m => m.status === 'DRIFT' || m.status === 'Drift').length;
+  const retrainModels = models.filter(m => m.status === 'RETRAINING' || m.status === 'Retraining').length;
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-end">
@@ -33,11 +54,11 @@ export default function ModelIntelligence() {
       {/* KPIs */}
       <div className="grid grid-cols-5 gap-4">
         {[
-          {t: 'Total Models', v: '24', tr: '20%', up: true, c: '#00a3ff', ic: Target},
-          {t: 'Active Models', v: '18', tr: '12%', up: true, c: '#ff3b30', ic: Activity},
-          {t: 'Model Accuracy (Avg)', v: '94.2%', tr: '2.4%', up: true, c: '#ff9500', ic: ShieldAlert},
-          {t: 'Drift Detected', v: '3', tr: '50%', up: true, c: '#ff3b30', ic: AlertTriangle},
-          {t: 'Retraining Due', v: '5', tr: '20%', up: false, c: '#34c759', ic: Database},
+          {t: 'Total Models', v: totalModels.toString(), tr: '', up: true, c: '#00a3ff', ic: Target},
+          {t: 'Active Models', v: activeModels.toString(), tr: '', up: true, c: '#ff3b30', ic: Activity},
+          {t: 'Model Accuracy (Avg)', v: `${avgAcc}%`, tr: '', up: true, c: '#ff9500', ic: ShieldAlert},
+          {t: 'Drift Detected', v: driftModels.toString(), tr: '', up: true, c: '#ff3b30', ic: AlertTriangle},
+          {t: 'Retraining Due', v: retrainModels.toString(), tr: '', up: false, c: '#34c759', ic: Database},
         ].map((k, i) => (
           <div key={i} className="glass-panel p-4 flex gap-4 items-center border-t-2" style={{borderTopColor: k.c}}>
             <div className="p-3 rounded-lg" style={{ backgroundColor: `${k.c}15`, color: k.c }}>
@@ -45,10 +66,7 @@ export default function ModelIntelligence() {
             </div>
             <div>
                <div className="text-[10px] text-gray-400 font-medium">{k.t}</div>
-               <div className="text-xl font-bold text-white tracking-tight">{k.v}</div>
-               <div className={`text-[9px] font-mono mt-0.5 ${k.up ? (k.c==='#ff3b30'?'text-ntro-red':'text-ntro-green') : 'text-ntro-red'}`}>
-                 {k.up ? '↑ ' : '↓ '}{k.tr}
-               </div>
+               <div className="text-xl font-bold text-white tracking-tight">{loading ? '-' : k.v}</div>
             </div>
           </div>
         ))}
@@ -64,22 +82,13 @@ export default function ModelIntelligence() {
                 <tr><th className="pb-2 font-normal">Model Name</th><th className="pb-2 font-normal">Type</th><th className="pb-2 font-normal">Accuracy</th><th className="pb-2 font-normal">Status</th><th className="pb-2 font-normal text-right">Last Trained</th></tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {[
-                  {n: 'FraudNet', t: 'Transaction Fraud', a: '96.2%', s: 'Active', l: '2 days ago', c: 'text-ntro-green'},
-                  {n: 'PhishGuard', t: 'Phishing Detection', a: '92.5%', s: 'Active', l: '3 days ago', c: 'text-ntro-green'},
-                  {n: 'RansomDet', t: 'Malware Classification', a: '95.1%', s: 'Active', l: '1 day ago', c: 'text-ntro-green'},
-                  {n: 'Anomaly', t: 'Anomaly Detection', a: '82.7%', s: 'Drift', l: '8 days ago', c: 'text-ntro-amber'},
-                  {n: 'GraphShield', t: 'Attack Graph Analysis', a: '90.4%', s: 'Active', l: '3 days ago', c: 'text-ntro-green'},
-                  {n: 'NLPThreat', t: 'Threat Intel NLP', a: '91.2%', s: 'Retraining', l: '7 days ago', c: 'text-ntro-amber'},
-                  {n: 'VisionScan', t: 'Document/Image Analysis', a: '93.8%', s: 'Active', l: '4 days ago', c: 'text-ntro-green'},
-                  {n: 'RiskPredict', t: 'Risk Scoring', a: '94.1%', s: 'Active', l: '2 days ago', c: 'text-ntro-green'},
-                ].map((r, i) => (
+                {models.map((r, i) => (
                   <tr key={i} className="hover:bg-white/5 cursor-pointer">
-                     <td className="py-2.5 font-medium text-gray-200">{r.n}</td>
-                     <td className="py-2.5">{r.t}</td>
-                     <td className="py-2.5 font-mono text-gray-300">{r.a}</td>
-                     <td className="py-2.5"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${r.s==='Active'?'text-ntro-green border-ntro-green bg-ntro-green/10': r.s==='Drift'?'text-ntro-red border-ntro-red bg-ntro-red/10': 'text-ntro-amber border-ntro-amber bg-ntro-amber/10'}`}>{r.s}</span></td>
-                     <td className="py-2.5 text-right font-mono text-gray-500">{r.l}</td>
+                     <td className="py-2.5 font-medium text-gray-200">{r.model_name}</td>
+                     <td className="py-2.5">{r.model_type}</td>
+                     <td className="py-2.5 font-mono text-gray-300">{(parseFloat(r.accuracy)*100).toFixed(1)}%</td>
+                     <td className="py-2.5"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${r.status.toUpperCase()==='ACTIVE'?'text-ntro-green border-ntro-green bg-ntro-green/10': r.status.toUpperCase()==='DRIFT'?'text-ntro-red border-ntro-red bg-ntro-red/10': 'text-ntro-amber border-ntro-amber bg-ntro-amber/10'}`}>{r.status}</span></td>
+                     <td className="py-2.5 text-right font-mono text-gray-500">{new Date(r.last_trained).toLocaleDateString()}</td>
                   </tr>
                 ))}
               </tbody>
@@ -113,9 +122,17 @@ export default function ModelIntelligence() {
 
         {/* Feature Importance */}
         <div className="col-span-3 glass-panel p-5 flex flex-col">
-           <h3 className="text-sm font-semibold text-white mb-4">Feature Importance <span className="text-gray-500 font-mono text-[10px]">(FraudNet)</span></h3>
-           <div className="flex-1 flex flex-col justify-between">
-               {[
+           <h3 className="text-sm font-semibold text-white mb-4">Feature Importance <span className="text-gray-500 font-mono text-[10px]">({models[0]?.model_name || 'ForecastModel'})</span></h3>
+           <div className="flex-1 flex flex-col gap-2 overflow-y-auto scrollbar-hide">
+               {models[0]?.features_used && typeof models[0].features_used === 'object' 
+                ? Object.entries(models[0].features_used).map(([k, v]: [string, any], i) => (
+                 <div key={i} className="flex items-center gap-2 text-[10px]">
+                   <div className="w-24 text-gray-400 truncate">{k}</div>
+                   <div className="flex-1 h-2.5 bg-navy rounded-sm overflow-hidden"><div className={`h-full bg-ntro-blue opacity-80`} style={{width: `${(parseFloat(v)/Math.max(...Object.values(models[0].features_used as Record<string, string>).map(x=>parseFloat(x))))*100}%`}}></div></div>
+                   <div className="w-8 text-right font-mono text-gray-500">{parseFloat(v).toFixed(2)}</div>
+                 </div>
+               ))
+               : [
                  {l: 'Transaction Amount', v: 38, c: 'bg-ntro-blue'},
                  {l: 'Merchant Category', v: 16, c: 'bg-ntro-blue'},
                  {l: 'Transaction Time', v: 14, c: 'bg-ntro-blue'},
@@ -148,7 +165,7 @@ export default function ModelIntelligence() {
               ].map((k, i) => (
                 <div key={i} className={`bg-navy border p-3 rounded-lg flex flex-col gap-2 ${k.c.split(' ')[2]}`}>
                   <div className="flex items-center gap-2">
-                    <div className={`p-1.5 rounded-full ${k.c.split(' ').slice(0,2).join(' ')}`}><k.ic className="w-3 h-3"/></div>
+                     <div className={`p-1.5 rounded-full ${k.c.split(' ').slice(0,2).join(' ')}`}><k.ic className="w-3 h-3"/></div>
                     <div className="text-[10px] font-semibold text-white leading-tight">{k.t}</div>
                   </div>
                   <div className="text-[9px] text-gray-400">{k.d}</div>

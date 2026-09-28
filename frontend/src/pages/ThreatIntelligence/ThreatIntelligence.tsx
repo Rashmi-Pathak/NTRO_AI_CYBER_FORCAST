@@ -1,7 +1,49 @@
-import { AlertOctagon, MapPin, Target, ShieldAlert, AlertTriangle, FileText, Globe2, ChevronRight, Download } from 'lucide-react';
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+import { useState, useEffect } from 'react';
+import { AlertOctagon, MapPin, Target, ShieldAlert, AlertTriangle, FileText, Globe2, ChevronRight, Search } from 'lucide-react';
+import { api } from '../../services/api';
 
 export default function ThreatIntelligence() {
+  const [intelData, setIntelData] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchIntel();
+  }, []);
+
+  const fetchIntel = async () => {
+    setLoading(true);
+    try {
+      const res = await api.getIntelligence(1, 100);
+      setIntelData(res.data || []);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) {
+      fetchIntel();
+      return;
+    }
+    setLoading(true);
+    try {
+      const res = await api.searchIoC(searchQuery);
+      if (res.found) {
+        setIntelData(res.results);
+      } else {
+        setIntelData([]);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-end">
@@ -49,33 +91,43 @@ export default function ThreatIntelligence() {
       <div className="grid grid-cols-12 gap-6 h-[380px]">
         {/* Live Feed Table */}
         <div className="col-span-5 glass-panel p-5 flex flex-col">
-          <h3 className="text-sm font-semibold text-white mb-3">Live Threat Feed</h3>
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="text-sm font-semibold text-white">Live Threat Feed</h3>
+            <form onSubmit={handleSearch} className="flex items-center bg-navy border border-white/10 rounded overflow-hidden">
+              <input 
+                type="text" 
+                placeholder="Search IoC..." 
+                className="bg-transparent text-white text-xs px-2 py-1 outline-none w-32"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+              />
+              <button type="submit" className="p-1 text-gray-400 hover:text-white">
+                <Search className="w-3 h-3" />
+              </button>
+            </form>
+          </div>
           <div className="flex-1 overflow-y-auto scrollbar-hide">
             <table className="w-full text-xs text-left">
               <thead className="text-gray-500 font-mono sticky top-0 bg-navy/90 backdrop-blur pb-2">
-                <tr><th className="pb-2 font-normal">Time</th><th className="pb-2 font-normal">Indicator</th><th className="pb-2 font-normal">Type</th><th className="pb-2 font-normal">Source</th><th className="pb-2 font-normal text-right">Risk</th></tr>
+                <tr><th className="pb-2 font-normal">Indicator</th><th className="pb-2 font-normal">Type</th><th className="pb-2 font-normal">Source</th><th className="pb-2 font-normal text-right">Risk</th></tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {[
-                  {t: '14:48:12', i: '185.199.110.22', ty: 'IP', s: 'AbuseIPDB', r: 'High', c: 'text-ntro-red border-ntro-red'},
-                  {t: '14:47:56', i: 'malware-update.com', ty: 'Domain', s: 'AlienVault', r: 'High', c: 'text-ntro-red border-ntro-red'},
-                  {t: '14:47:33', i: 'e37f...9b2a', ty: 'Hash', s: 'VirusTotal', r: 'Medium', c: 'text-ntro-amber border-ntro-amber'},
-                  {t: '14:46:58', i: 'trojan-loader.exe', ty: 'File', s: 'Hybrid-Analysis', r: 'High', c: 'text-ntro-red border-ntro-red'},
-                  {t: '14:46:21', i: '203.0.113.5', ty: 'IP', s: 'MISP', r: 'Medium', c: 'text-ntro-amber border-ntro-amber'},
-                  {t: '14:45:49', i: 'suspicious-script.ps1', ty: 'File', s: 'OTX', r: 'High', c: 'text-ntro-red border-ntro-red'},
-                  {t: '14:45:12', i: 'darkmode.net', ty: 'Domain', s: 'CrowdStrike', r: 'Medium', c: 'text-ntro-amber border-ntro-amber'},
-                  {t: '14:44:57', i: 'c2-panel.top', ty: 'Domain', s: 'Internal', r: 'Low', c: 'text-ntro-green border-ntro-green'},
-                  {t: '14:44:01', i: '110.43.2.45', ty: 'IP', s: 'Recorded Future', r: 'High', c: 'text-ntro-red border-ntro-red'},
-                  {t: '14:43:28', i: '742b...df19', ty: 'Hash', s: 'ANY.RUN', r: 'Medium', c: 'text-ntro-amber border-ntro-amber'},
-                ].map((r, i) => (
-                  <tr key={i} className="hover:bg-white/5">
-                    <td className="py-2 font-mono text-gray-500">{r.t}</td>
-                    <td className="py-2 font-mono text-gray-300 truncate max-w-[100px] pr-2">{r.i}</td>
-                    <td className="py-2">{r.ty}</td>
-                    <td className="py-2 text-gray-400">{r.s}</td>
-                    <td className="py-2 text-right"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${r.c}`}>{r.r}</span></td>
-                  </tr>
-                ))}
+                {loading ? (
+                  <tr><td colSpan={4} className="py-4 text-center text-gray-500">Loading...</td></tr>
+                ) : intelData.length === 0 ? (
+                  <tr><td colSpan={4} className="py-4 text-center text-gray-500">No records found</td></tr>
+                ) : intelData.map((r, i) => {
+                  const risk = r.risk === 'CRITICAL' ? 'High' : r.risk === 'HIGH' ? 'High' : r.risk === 'MEDIUM' ? 'Medium' : 'Low';
+                  const c = risk === 'High' ? 'text-ntro-red border-ntro-red' : risk === 'Medium' ? 'text-ntro-amber border-ntro-amber' : 'text-ntro-green border-ntro-green';
+                  return (
+                    <tr key={i} className="hover:bg-white/5">
+                      <td className="py-2 font-mono text-gray-300 truncate max-w-[120px] pr-2" title={r.indicator}>{r.indicator}</td>
+                      <td className="py-2">{r.indicator_type}</td>
+                      <td className="py-2 text-gray-400 truncate max-w-[80px]">{r.source}</td>
+                      <td className="py-2 text-right"><span className={`px-1.5 py-0.5 rounded border text-[10px] ${c}`}>{risk}</span></td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>

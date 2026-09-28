@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { Search, Bell, Grid, Activity, Target, ShieldAlert, GitBranch, Crosshair, Globe2, AlertOctagon, FileText, Cpu, Database, Settings } from 'lucide-react';
+import { NavLink, Outlet, Link } from 'react-router-dom';
+import { Search, Bell, Grid, Activity, Target, ShieldAlert, GitBranch, Crosshair, Globe2, AlertOctagon, FileText, Cpu, Database, Settings, Shield } from 'lucide-react';
 
 const navItems = [
   { path: '/command-center', icon: Grid, label: 'Command Center' },
@@ -31,7 +31,15 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <aside className="w-64 border-r border-border-soft bg-sidebar flex flex-col relative z-20 shrink-0">
         <div className="h-20 flex items-center px-6 border-b border-ntro-blue/10 shrink-0">
-          <img src="/images/media_1788614184995.png" alt="NTRO Logo" className="h-10 object-contain" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="p-1.5 bg-ntro-blue/10 rounded-lg border border-ntro-blue/30 group-hover:bg-ntro-blue/20 transition-colors shadow-[0_0_10px_rgba(8,124,240,0.2)]">
+              <Shield className="w-6 h-6 text-ntro-blue" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-white font-bold tracking-widest text-sm leading-tight">NTRO AI</span>
+              <span className="text-ntro-blue text-[10px] font-semibold tracking-wider">CYBER FORECAST</span>
+            </div>
+          </Link>
         </div>
         
         <div className="flex-1 overflow-y-auto py-4 scrollbar-hide">

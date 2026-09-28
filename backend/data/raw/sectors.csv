@@ -1,0 +1,11 @@
+sector_id,sector,baseline_risk
+SEC01,Government,HIGH
+SEC02,Banking & Finance,HIGH
+SEC03,Power & Energy,CRITICAL
+SEC04,Healthcare,HIGH
+SEC05,Telecom,HIGH
+SEC06,Transport,MEDIUM
+SEC07,Education,MEDIUM
+SEC08,Manufacturing,MEDIUM
+SEC09,IT & ITES,HIGH
+SEC10,Defence,CRITICAL

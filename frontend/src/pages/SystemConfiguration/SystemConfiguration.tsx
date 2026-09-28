@@ -1,6 +1,38 @@
+import { useState, useEffect } from 'react';
 import { Settings, Heart, Link, Database, Cpu, HardDrive, Clock, Search, ChevronRight, ShieldAlert, Activity } from 'lucide-react';
+import { api } from '../../services/api';
 
 export default function SystemConfiguration() {
+  const [sysStatus, setSysStatus] = useState<any>(null);
+  const [logs, setLogs] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [stat, lg] = await Promise.all([
+          api.getSystemStatus(),
+          api.getSystemLogs()
+        ]);
+        if (!stat.error) setSysStatus(stat);
+        setLogs(lg || []);
+      } catch (e) {
+        console.error("Failed to fetch system data", e);
+      }
+    }
+    fetchData();
+    const iv = setInterval(fetchData, 10000);
+    return () => clearInterval(iv);
+  }, []);
+
+  const kpis = sysStatus ? [
+    {t: 'System Health', v: sysStatus.health, tr: '100%', up: true, c: '#34c759', ic: Heart},
+    {t: 'Active Integrations', v: `${sysStatus.integrations?.active} / ${sysStatus.integrations?.total}`, tr: '9%', up: true, c: '#a855f7', ic: Link},
+    {t: 'Data Pipelines', v: `${sysStatus.pipelines?.active} / ${sysStatus.pipelines?.total}`, tr: 'Online', up: true, c: '#00a3ff', ic: Database},
+    {t: 'Model Services', v: `${sysStatus.models?.active} / ${sysStatus.models?.total}`, tr: 'Running', up: true, c: '#34c759', ic: Cpu},
+    {t: 'Storage Usage', v: sysStatus.storage, tr: '12%', up: true, c: '#a855f7', ic: HardDrive},
+    {t: 'Uptime', v: sysStatus.uptime, tr: '0.02%', up: true, c: '#34c759', ic: Clock},
+  ] : [];
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-end">
@@ -23,14 +55,7 @@ export default function SystemConfiguration() {
 
       {/* KPIs */}
       <div className="grid grid-cols-6 gap-4">
-        {[
-          {t: 'System Health', v: 'Healthy', tr: '100%', up: true, c: '#34c759', ic: Heart},
-          {t: 'Active Integrations', v: '12 / 14', tr: '9%', up: true, c: '#a855f7', ic: Link},
-          {t: 'Data Pipelines', v: '8 / 8', tr: 'Online', up: true, c: '#00a3ff', ic: Database},
-          {t: 'Model Services', v: '6 / 6', tr: 'Running', up: true, c: '#34c759', ic: Cpu},
-          {t: 'Storage Usage', v: '3.2 TB', tr: '12%', up: true, c: '#a855f7', ic: HardDrive},
-          {t: 'Uptime', v: '99.97%', tr: '0.02%', up: true, c: '#34c759', ic: Clock},
-        ].map((k, i) => (
+        {kpis.map((k, i) => (
           <div key={i} className="glass-panel p-4 flex gap-4 items-center border-t-2" style={{borderTopColor: k.c}}>
             <div className="p-2 rounded-lg shrink-0" style={{ backgroundColor: `${k.c}15`, color: k.c }}>
               <k.ic className="w-5 h-5" />
@@ -122,23 +147,13 @@ export default function SystemConfiguration() {
                   <tr><th className="pb-2 font-normal">Service</th><th className="pb-2 font-normal">Status</th><th className="pb-2 font-normal">Uptime</th><th className="pb-2 font-normal text-center">Actions</th></tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
-                  {[
-                    {s: 'Threat Ingestion Service', st: 'Running', u: '99.98%'},
-                    {s: 'ML Model Service', st: 'Running', u: '99.95%'},
-                    {s: 'Analytics Engine', st: 'Running', u: '99.97%'},
-                    {s: 'Simulation Engine', st: 'Running', u: '99.92%'},
-                    {s: 'Database (Primary)', st: 'Running', u: '99.99%'},
-                    {s: 'Database (Replica)', st: 'Running', u: '99.96%'},
-                    {s: 'API Gateway', st: 'Running', u: '99.98%'},
-                    {s: 'Notification Service', st: 'Running', u: '99.93%'},
-                    {s: 'Auth Service', st: 'Running', u: '99.99%'},
-                  ].map((r, i) => (
+                  {(sysStatus?.nodes || []).map((r: any, i: number) => (
                     <tr key={i} className="hover:bg-white/5">
-                      <td className="py-3 font-medium text-gray-200">{r.s}</td>
+                      <td className="py-3 font-medium text-gray-200">{r.name}</td>
                       <td className="py-3 flex items-center gap-2 text-ntro-green">
-                        <span className="w-2 h-2 bg-ntro-green rounded-full shadow-[0_0_5px_#34c759]"></span> {r.st}
+                        <span className="w-2 h-2 bg-ntro-green rounded-full shadow-[0_0_5px_#34c759]"></span> {r.status}
                       </td>
-                      <td className="py-3 font-mono text-gray-400">{r.u}</td>
+                      <td className="py-3 font-mono text-gray-400">{r.latency}</td>
                       <td className="py-3">
                          <div className="flex justify-center gap-2">
                             <button className="p-1 rounded bg-white/5 hover:bg-white/10 text-gray-400"><Play className="w-3 h-3" /></button>

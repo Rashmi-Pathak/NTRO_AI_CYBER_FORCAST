@@ -1,0 +1,5 @@
+model_id,model_name,purpose,status
+MODEL-001,Isolation Forest,Anomaly Detection,BASELINE
+MODEL-002,Random Forest,Attack Classification,BASELINE
+MODEL-003,XGBoost,Attack Classification,OPTIONAL
+MODEL-004,GRU/LSTM,Temporal Attack Forecasting,PLANNED

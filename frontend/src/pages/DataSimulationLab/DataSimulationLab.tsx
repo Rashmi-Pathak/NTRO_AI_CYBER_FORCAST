@@ -6,7 +6,20 @@ const mockTrendData = Array.from({length: 6}).map((_, i) => ({
   val: Math.random() * 40 + 40,
 }));
 
+import { useState, useEffect } from 'react';
+import { api } from '../../services/api';
+
 export default function DataSimulationLab() {
+  const [summary, setSummary] = useState<any>(null);
+  const [datasets, setDatasets] = useState<any[]>([]);
+  const [sims, setSims] = useState<any>(null);
+
+  useEffect(() => {
+    api.getDataSummary().then(setSummary);
+    api.getDatasets().then(setDatasets);
+    api.getSimulations().then(setSims);
+  }, []);
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-end">
@@ -61,16 +74,7 @@ export default function DataSimulationLab() {
                 <tr><th className="pb-2 font-normal">Dataset Name</th><th className="pb-2 font-normal">Type</th><th className="pb-2 font-normal">Records</th><th className="pb-2 font-normal">Last Updated</th><th className="pb-2 font-normal text-right">Status</th></tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {[
-                  {n: 'Indian Bank Transactions', ty: 'Financial', r: '12.8M', d: 'Sep 04, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                  {n: 'UPI Fraud Patterns', ty: 'Financial', r: '8.5M', d: 'Sep 03, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                  {n: 'Malware Samples', ty: 'Security', r: '2.3M', d: 'Aug 28, 2026', s: 'Processing', c: 'text-ntro-blue border-ntro-blue bg-ntro-blue/10'},
-                  {n: 'Phishing URLs', ty: 'Security', r: '1.5M', d: 'Sep 05, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                  {n: 'Network Traffic (Telecom)', ty: 'Network', r: '82M', d: 'Aug 29, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                  {n: 'Government Infra Logs', ty: 'Infrastructure', r: '18.4M', d: 'Sep 01, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                  {n: 'IoT Device Telemetry', ty: 'IoT', r: '4.2M', d: 'Aug 29, 2026', s: 'Processing', c: 'text-ntro-blue border-ntro-blue bg-ntro-blue/10'},
-                  {n: 'Dark Web Intelligence', ty: 'Threat Intel', r: '6.8M', d: 'Sep 01, 2026', s: 'Ready', c: 'text-ntro-green border-ntro-green bg-ntro-green/10'},
-                ].map((r, i) => (
+                {(datasets || []).map((r: any, i: number) => (
                   <tr key={i} className="hover:bg-white/5 cursor-pointer">
                      <td className="py-2.5 font-medium text-gray-200">{r.n}</td>
                      <td className="py-2.5">{r.ty}</td>
@@ -88,13 +92,7 @@ export default function DataSimulationLab() {
         <div className="col-span-4 glass-panel p-5 flex flex-col">
           <h3 className="text-sm font-semibold text-white mb-4">Simulation Scenarios</h3>
           <div className="flex-1 overflow-y-auto space-y-3 scrollbar-hide">
-            {[
-              {t: 'Ransomware Outbreak', d: 'Simulate ransomware spread across government infra.', c: 'text-ntro-red bg-ntro-red/10'},
-              {t: 'DDoS Attack Simulation', d: 'Model large-scale DDoS on telecom network.', c: 'text-ntro-red bg-ntro-red/10'},
-              {t: 'Fraud Transaction Simulation', d: 'Generate synthetic financial fraud scenarios.', c: 'text-ntro-red bg-ntro-red/10'},
-              {t: 'Insider Threat Simulation', d: 'Simulate anomalous data exfiltration behavior.', c: 'text-ntro-red bg-ntro-red/10'},
-              {t: 'APT Campaign Simulation', d: 'End-to-end APT attack lifecycle simulation.', c: 'text-ntro-red bg-ntro-red/10'},
-            ].map((s, i) => (
+            {(sims?.scenarios || []).map((s: any, i: number) => (
               <div key={i} className="bg-navy border border-white/5 p-3 rounded-lg flex items-center justify-between group hover:border-ntro-blue/30 transition-colors cursor-pointer">
                 <div className="flex items-center gap-3">
                   <div className={`p-2 rounded flex items-center justify-center ${s.c}`}><Activity className="w-4 h-4"/></div>
@@ -170,11 +168,7 @@ export default function DataSimulationLab() {
          <div className="col-span-5 glass-panel p-5 flex flex-col">
            <h3 className="text-sm font-semibold text-white mb-3">Recent Simulations</h3>
            <div className="flex-1 overflow-y-auto space-y-2 scrollbar-hide text-xs">
-              {[
-                {id: 'SIM-2026-047', n: 'Ransomware (Gov)', r: 'High', rc: 'text-ntro-red border-ntro-red bg-ntro-red/10', s: 'Completed', sc: 'text-ntro-green', t: '1 hour ago'},
-                {id: 'SIM-2026-028', n: 'UPI Fraud (Synthetic)', r: 'Medium', rc: 'text-ntro-amber border-ntro-amber bg-ntro-amber/10', s: 'Completed', sc: 'text-ntro-green', t: '2 hours ago'},
-                {id: 'SIM-2026-051', n: 'DDoS (Telecom)', r: 'High', rc: 'text-ntro-red border-ntro-red bg-ntro-red/10', s: 'Completed', sc: 'text-ntro-green', t: '4 hours ago'},
-              ].map((s, i) => (
+              {(sims?.recent || []).map((s: any, i: number) => (
                 <div key={i} className="flex items-center justify-between border-b border-white/5 pb-2 last:border-0">
                   <div className="flex items-center gap-4">
                     <div className="font-mono text-gray-500">{s.id}</div>
@@ -205,3 +199,9 @@ export default function DataSimulationLab() {
     </div>
   );
 }
+
+
+
+
+
+

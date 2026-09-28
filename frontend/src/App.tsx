@@ -14,6 +14,8 @@ import IncidentManagement from '@/pages/IncidentManagement/IncidentManagement';
 import ModelIntelligence from '@/pages/ModelIntelligence/ModelIntelligence';
 import DataSimulationLab from '@/pages/DataSimulationLab/DataSimulationLab';
 import SystemConfiguration from '@/pages/SystemConfiguration/SystemConfiguration';
+import EventDetail from '@/pages/EventDetail/EventDetail';
+import AttackDetail from '@/pages/AttackDetail/AttackDetail';
 
 function App() {
   return (
@@ -25,9 +27,11 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/command-center" element={<CommandCenter />} />
           <Route path="/live-monitor" element={<LiveThreatMonitor />} />
+          <Route path="/live-threats/:eventId" element={<EventDetail />} />
           <Route path="/attack-forecast" element={<AttackForecast />} />
           <Route path="/attack-analysis" element={<AttackAnalysis />} />
-          <Route path="/attack-analysis/:forecastId" element={<ThreatInvestigation />} />
+          <Route path="/attack-analysis/:attackId" element={<AttackDetail />} />
+          <Route path="/threat-investigation/:forecastId" element={<ThreatInvestigation />} />
           <Route path="/attack-path" element={<AttackPath />} />
           <Route path="/assets" element={<TargetAssetIntelligence />} />
           <Route path="/sectors" element={<SectorIntelligence />} />

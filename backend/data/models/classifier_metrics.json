@@ -1,0 +1,209 @@
+{
+  "accuracy": 0.8708,
+  "precision": 0.8596,
+  "recall": 0.8708,
+  "f1_score": 0.8624,
+  "confusion_matrix": [
+    [
+      536,
+      2,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      10,
+      76,
+      2,
+      3,
+      106,
+      71,
+      0,
+      42,
+      0
+    ],
+    [
+      0,
+      0,
+      246,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      3,
+      2,
+      211,
+      5,
+      2,
+      0,
+      7,
+      0
+    ],
+    [
+      13,
+      90,
+      1,
+      4,
+      138,
+      101,
+      0,
+      76,
+      1
+    ],
+    [
+      4,
+      10,
+      1,
+      0,
+      11,
+      384,
+      0,
+      6,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3147,
+      0,
+      0
+    ],
+    [
+      6,
+      66,
+      0,
+      2,
+      69,
+      47,
+      1,
+      45,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      1,
+      5,
+      0,
+      0,
+      442
+    ]
+  ],
+  "classes": [
+    "CREDENTIAL_ACCESS",
+    "EXECUTION",
+    "EXFILTRATION",
+    "IMPACT",
+    "INITIAL_ACCESS",
+    "LATERAL_MOVEMENT",
+    "NORMAL",
+    "PERSISTENCE",
+    "RECONNAISSANCE"
+  ],
+  "training_samples": 24000,
+  "test_samples": 6000,
+  "features": [
+    "packet_count",
+    "byte_count",
+    "duration_seconds",
+    "failed_auth_count",
+    "unique_destinations",
+    "port_diversity",
+    "outbound_ratio",
+    "traffic_burst",
+    "bytes_per_packet",
+    "packets_per_second",
+    "bytes_per_second",
+    "auth_failure_rate",
+    "port_scan_score",
+    "connection_intensity",
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "is_after_hours"
+  ],
+  "classification_report": {
+    "CREDENTIAL_ACCESS": {
+      "precision": 0.9420035149384886,
+      "recall": 0.9925925925925926,
+      "f1-score": 0.9666366095581606,
+      "support": 540.0
+    },
+    "EXECUTION": {
+      "precision": 0.3064516129032258,
+      "recall": 0.24516129032258063,
+      "f1-score": 0.2724014336917563,
+      "support": 310.0
+    },
+    "EXFILTRATION": {
+      "precision": 0.9761904761904762,
+      "recall": 0.9919354838709677,
+      "f1-score": 0.984,
+      "support": 248.0
+    },
+    "IMPACT": {
+      "precision": 0.9547511312217195,
+      "recall": 0.9173913043478261,
+      "f1-score": 0.9356984478935698,
+      "support": 230.0
+    },
+    "INITIAL_ACCESS": {
+      "precision": 0.41818181818181815,
+      "recall": 0.32547169811320753,
+      "f1-score": 0.3660477453580902,
+      "support": 424.0
+    },
+    "LATERAL_MOVEMENT": {
+      "precision": 0.6274509803921569,
+      "recall": 0.9230769230769231,
+      "f1-score": 0.7470817120622568,
+      "support": 416.0
+    },
+    "NORMAL": {
+      "precision": 0.9996823379923762,
+      "recall": 1.0,
+      "f1-score": 0.9998411437648927,
+      "support": 3147.0
+    },
+    "PERSISTENCE": {
+      "precision": 0.2542372881355932,
+      "recall": 0.1906779661016949,
+      "f1-score": 0.2179176755447942,
+      "support": 236.0
+    },
+    "RECONNAISSANCE": {
+      "precision": 0.9977426636568849,
+      "recall": 0.9844097995545658,
+      "f1-score": 0.9910313901345291,
+      "support": 449.0
+    },
+    "accuracy": 0.8708333333333333,
+    "macro avg": {
+      "precision": 0.7196324248458599,
+      "recall": 0.7300796731089287,
+      "f1-score": 0.7200729064453388,
+      "support": 6000.0
+    },
+    "weighted avg": {
+      "precision": 0.859614228123199,
+      "recall": 0.8708333333333333,
+      "f1-score": 0.862427139649699,
+      "support": 6000.0
+    }
+  }
+}
